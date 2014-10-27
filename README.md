@@ -1,0 +1,4 @@
+TicTacToe
+=========
+
+Síðannaverkefni fyrir Hugbúnaðarfræði
