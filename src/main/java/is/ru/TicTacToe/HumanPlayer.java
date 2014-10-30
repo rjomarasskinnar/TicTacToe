@@ -20,5 +20,9 @@ public class HumanPlayer {
 		return numberOfWins;
 	}
 
+	public char getToken() {
+		return token;
+	}
+
 }
 
