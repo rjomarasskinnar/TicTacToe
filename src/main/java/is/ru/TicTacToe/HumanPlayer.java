@@ -1,4 +1,4 @@
-package TicTacToe;
+package is.ru.TicTacToe;
 
 public class HumanPlayer {
 	private int numberOfWins = 0;

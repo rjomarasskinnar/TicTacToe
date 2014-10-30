@@ -1,4 +1,4 @@
-package TicTacToe;
+package is.ru.TicTacToe;
 
 public class Game {
 	private int numberOfGames = 0;
