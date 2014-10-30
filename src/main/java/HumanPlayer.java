@@ -5,7 +5,7 @@ public class HumanPlayer {
 	
 	public HumanPlayer(char token) {
 		score() = 0;
-		token = '\0';
+		token = token;
 	}
 
 	public void takeTurn(Board board) {
