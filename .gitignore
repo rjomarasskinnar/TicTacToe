@@ -3,9 +3,12 @@
 .settings
 .classpath
 .project
-bin
+/bin
 
 # Gradle
-build
-.gradle
-.gradletasknamecache
+*.gradle
+*.gradletasknamecache
+/build.gradle
+
+#Sublime
+*.sublime-*
