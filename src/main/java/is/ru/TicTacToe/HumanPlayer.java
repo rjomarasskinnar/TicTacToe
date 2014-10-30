@@ -12,9 +12,8 @@ public class HumanPlayer {
 		this.token = token;
 	}
 
-	public void takeTurn(Board board, HumanPlayer p) {
+	public void takeTurn(Board board[][], HumanPlayer p) {
 		boolean validInput = false;
-		int boxno;
 		while (!validInput) {
 			System.out.println("Player " + p.token + " please choose a box (1-9): ");
 			int boxno = System.in.read();
