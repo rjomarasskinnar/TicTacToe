@@ -24,10 +24,6 @@ public class Game {
 	public boolean checkIfOver() {
 		return false;
 	}
-	/*	
-	public HumanPlayer checkForWinner() {
-		return new HumanPlayer();
-	} */
 
 	public static void main(String[] args) {
 		Game game = new Game();
