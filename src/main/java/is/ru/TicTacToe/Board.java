@@ -20,10 +20,10 @@ public class Board {
 	}
 	public void updateBoard(int x, int y, HumanPlayer p) {
 		if (board[x][y] != ' ') {
-			throw new IllegalArgumentException("Cannot put " + p.token + " there, the cell has already been ticked");
+			throw new IllegalArgumentException("Cannot put " + p.getToken() + " there, the cell has already been ticked");
 		}
 		else {
-			board[x][y] = p.token;
+			board[x][y] = p.getToken();
 		}
 	}
 	public boolean boardIsFull(){
