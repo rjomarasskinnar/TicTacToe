@@ -2,6 +2,7 @@ package is.ru.TicTacToe;
 
 public class HumanPlayer {
 	private int numberOfWins;
+	private char token;
 
 	public HumanPlayer(char token) {
 		if(token != 'X' && token != 'O'){
