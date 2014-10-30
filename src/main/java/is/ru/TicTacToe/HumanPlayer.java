@@ -7,8 +7,8 @@ public class HumanPlayer {
 		if(token != 'X' && token != 'O'){
 			throw new IllegalArgumentException("Please Insert either X or O");
 		}
-		numberOfWins = 0;
-		token = token;
+		this.numberOfWins = 0;
+		this.token = token;
 	}
 
 	public void takeTurn(Board board) {
