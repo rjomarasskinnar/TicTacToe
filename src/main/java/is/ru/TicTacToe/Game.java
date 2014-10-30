@@ -28,4 +28,9 @@ public class Game {
 	public HumanPlayer checkForWinner() {
 		return new HumanPlayer();
 	} */
+
+	public static void main(String[] args) {
+		Game game = new Game();
+		game.newGame();
+	}
 }
