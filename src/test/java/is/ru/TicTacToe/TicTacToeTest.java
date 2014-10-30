@@ -1,4 +1,4 @@
-package TicTacToe.main.java.HumanPlayer.java;
+package is.ru.TicTacToe;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
