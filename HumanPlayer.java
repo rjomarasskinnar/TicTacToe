@@ -4,8 +4,8 @@ public class HumanPlayer {
 	private int numberOfWins = 0;
 	
 	public HumanPlayer(char token) {
-		int score = 0;
-		token = token;
+		score() = 0;
+		token = '\0';
 	}
 
 	public void takeTurn(Board board) {
@@ -13,7 +13,7 @@ public class HumanPlayer {
 	}
 
 	public int score() {
-		return 0;
+
 	}
 }
 
