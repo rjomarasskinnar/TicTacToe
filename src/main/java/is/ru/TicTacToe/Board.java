@@ -14,14 +14,14 @@ public class Board {
 	public void clearBoard() {
 		for(int i = 0; i < 3; i++){
 			for(int j = 0; j < 3; j++){
-				board[i][j] = '';
+				board[i][j] = ' ';
 				}
 			}
 		}
 	}
 	
 	public void updateBoard(int x, int y, HumanPlayer p) {
-		if (board[x][y] != '') {
+		if (board[x][y] != ' ') {
 			throw new IllegalArgumentException("Cannot put " + p.token + " there, the cell has already been ticked");
 		}
 		else {
