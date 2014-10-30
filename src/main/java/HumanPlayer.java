@@ -4,7 +4,7 @@ public class HumanPlayer {
 	private int numberOfWins = 0;
 	
 	public HumanPlayer(char token) {
-		score() = 0;
+		int score = 0;
 		token = token;
 	}
 
@@ -13,7 +13,7 @@ public class HumanPlayer {
 	}
 
 	public int score() {
-
+		return 0;
 	}
 }
 

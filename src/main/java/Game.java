@@ -24,8 +24,8 @@ public class Game {
 	public boolean checkIfOver() {
 		return false;
 	}
-	
+	/*	
 	public HumanPlayer checkForWinner() {
 		return new HumanPlayer();
-	}
+	} */
 }
