@@ -1,41 +1,35 @@
 package is.ru.TicTacToe;
 
 public class Board {
-	private char[][] board = new char[3][3];
+	private char[] board = new char[9];
 
 	public Board() {
 		for(int i = 0; i < 3; i++){
-			for(int j = 0; j < 3; j++){
-				board[i][j] = ' ';
-			}
-		} // initializes Board cells with whitespace in them
+				board[i] = ' ';
+		}// initializes Board cells with whitespace in them
 	}
-	
 	public void printBoard() {
-		System.out.printf(" %s %s %s %s %s\n", board[0][0], "|", board[0][1], "|", board[0][2]);
+		System.out.printf(" %s %s %s %s %s\n", board[0], "|", board[1], "|", board[2]);
 		System.out.printf("-----------\n");
-		System.out.printf(" %s %s %s %s %s\n", board[1][0], "|", board[1][1], "|", board[1][2]);
+		System.out.printf(" %s %s %s %s %s\n", board[3], "|", board[4], "|", board[5]);
 		System.out.printf("-----------\n");
-		System.out.printf(" %s %s %s %s %s\n", board[2][0], "|", board[2][1], "|", board[2][2]);
+		System.out.printf(" %s %s %s %s %s\n", board[6], "|", board[7], "|", board[8]);
 	}
-	public void updateBoard(int x, int y, HumanPlayer p) {
-		if (board[x][y] != ' ') {
+	public void updateBoard(int x, HumanPlayer p) {
+		if (board[x] != ' ') {
 			throw new IllegalArgumentException("Cannot put " + p.getToken() + " there, the cell has already been ticked");
 		}
 		else {
-			board[x][y] = p.getToken();
+			board[x] = p.getToken();
 		}
 	}
 	public boolean boardIsFull(){
 		for(int i = 0; i < 3; i++){
-			for(int j = 0; j < 3; j++){
-				if(board[i][j] == ' '){
-					return false;
-				}
+			if(board[i] == ' '){
+				return false;
 			}
 		}
 		return true;
-
 	}
 }
 
