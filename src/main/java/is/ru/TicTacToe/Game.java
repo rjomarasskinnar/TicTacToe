@@ -60,6 +60,9 @@ public class Game {
 		return p1;
 	} 
 	public void setNumberOfGames(int x){
+		if(x < 0){
+			 throw new IllegalArgumentException("Please Insert a number higher than 0");
+		}
 		numberOfGames += x;
 	}
 }

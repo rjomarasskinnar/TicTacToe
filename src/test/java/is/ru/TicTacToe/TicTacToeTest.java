@@ -50,9 +50,14 @@ public class TicTacToeTest {
                 Game testgame = new Game();
                 HumanPlayer p1 = new HumanPlayer('X');
                 HumanPlayer p2 = new HumanPlayer('O');//makes the 2 neccesary players to be able to call the function
-                testgame.setNumberOfGames(8);//odd number = should return player 2
+                testgame.setNumberOfGames(8);//Even number = should return player 1
                 assertEquals(p1, testgame.startingPlayer(p1, p2));
 
+	}
+
+	 @Test(expected = IllegalArgumentException.class)
+        public void testSetNumberOfGamesNegative(){
+               Game testgame = new Game();
+		 testgame.setNumberOfGames(-8);//Negative number should throw an exception
+	}
 }
-
-
