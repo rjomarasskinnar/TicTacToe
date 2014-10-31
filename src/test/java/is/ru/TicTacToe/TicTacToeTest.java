@@ -17,7 +17,6 @@ public class TicTacToeTest {
     public void testBoardIsFullWithNonFullBoard() {
             HumanPlayer p1 = new HumanPlayer('X'); // create new player with token X
             Board testBoard = new Board(); //creates a new board
-            testBoard.clearBoard();
             testBoard.updateBoard(0, 0, p1); //put some values in
             testBoard.updateBoard(1, 0, p1); //but not enough
             testBoard.updateBoard(2, 0, p1); //to fill the board
@@ -34,10 +33,18 @@ public class TicTacToeTest {
                             testBoard.updateBoard(i, j, p1); //fills the board with X's
                     }
             }
-            assert.equals(true, testBoard.boardIsFull());
+            assertEquals(true, testBoard.boardIsFull());
 
 
     }
+	@Test
+	public void testStarterPlayer(){
+		Game testgame = new Game();
+		HumanPlayer p1 = new HumanPlayer('X');
+		HumanPlayer p2 = new HumanPlayer('O');//makes the 2 neccesary players to be able to call the function
+		testgame.setNumberOfGames(7);//odd number = should return player 2
+		assertEquals(p2, testgame.startingPlayer(p1, p2));
+	}
 
 }
 
