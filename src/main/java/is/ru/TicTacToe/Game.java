@@ -46,15 +46,6 @@ public class Game {
 	public boolean checkIfOver() {
 		return false;
 	}
-<<<<<<< .merge_file_a04780
-=======
-
-	/*	
-	public HumanPlayer checkForWinner() {
-		return new HumanPlayer();
-	} */
->>>>>>> .merge_file_a00704
-
 	public static void main(String[] args) {
 		Game game = new Game();
 		game.newGame();
