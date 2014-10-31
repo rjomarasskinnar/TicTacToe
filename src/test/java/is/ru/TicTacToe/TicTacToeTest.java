@@ -9,10 +9,36 @@ import static org.junit.Assert.*;
  * @author grimur, @date 10/30/14 3:18 PM
  */
 public class TicTacToeTest {
-    	@Test (expected = IllegalArgumentException.class)
-	public void stringAsVariableInHumanPlayerConstrustor() {
+    @Test (expected = IllegalArgumentException.class)
+	public void testIncorrectCharAsVariableInHumanPlayerConstrustor() {
 	    HumanPlayer Player1 = new HumanPlayer('Y');
 	}
+	@Test
+    public void testBoardIsFullWithNonFullBoard() {
+            HumanPlayer p1 = new HumanPlayer('X'); // create new player with token X
+            Board testBoard = new Board(); //creates a new board
+            testBoard.clearBoard();
+            testBoard.updateBoard(0, 0, p1); //put some values in
+            testBoard.updateBoard(1, 0, p1); //but not enough
+            testBoard.updateBoard(2, 0, p1); //to fill the board
+            testBoard.updateBoard(0, 2, p1);
+            testBoard.updateBoard(2, 2, p1);
+            assertEquals(false, testBoard.boardIsFull());
+    }
+    @Test
+    public void testBoardIsFullWithFullBoard() {
+            HumanPlayer p1 = new HumanPlayer('X'); // create new player with token X
+            Board testBoard = new Board(); //creates a new board
+            for(int i = 0; i < 3; i++){
+                    for(int j = 0; j < 3; j++){
+                            testBoard.updateBoard(i, j, p1); //fills the board with X's
+                    }
+            }
+            assert.equals(true, testBoard.boardIsFull());
+
+
+    }
+
 }
 
 
