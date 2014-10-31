@@ -38,13 +38,20 @@ public class TicTacToeTest {
 
     }
 	@Test
-	public void testStarterPlayer(){
+	public void testStarterPlayerOdd(){
 		Game testgame = new Game();
 		HumanPlayer p1 = new HumanPlayer('X');
 		HumanPlayer p2 = new HumanPlayer('O');//makes the 2 neccesary players to be able to call the function
 		testgame.setNumberOfGames(7);//odd number = should return player 2
 		assertEquals(p2, testgame.startingPlayer(p1, p2));
 	}
+	@Test
+        public void testStarterPlayerEven(){
+                Game testgame = new Game();
+                HumanPlayer p1 = new HumanPlayer('X');
+                HumanPlayer p2 = new HumanPlayer('O');//makes the 2 neccesary players to be able to call the function
+                testgame.setNumberOfGames(8);//odd number = should return player 2
+                assertEquals(p1, testgame.startingPlayer(p1, p2));
 
 }
 
