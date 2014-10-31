@@ -31,5 +31,9 @@ public class Board {
 		}
 		return true;
 	}
+	// for AI
+	public char getBoardCells(int cell) {
+		return board[cell];
+	}
 }
 
