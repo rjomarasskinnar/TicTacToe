@@ -40,7 +40,12 @@ public class Game {
 	}
 	
 	public HumanPlayer startingPlayer(HumanPlayer p1, HumanPlayer p2) {
+		if(numberOfGames % 2 == 0){
 		return p1;
+		}
+		else{
+		return p2;
+		}
 	}
 	
 	public boolean checkIfOver() {
@@ -54,4 +59,7 @@ public class Game {
 	public HumanPlayer checkForWinner(HumanPlayer p1, HumanPlayer p2) {
 		return p1;
 	} 
+	public void setNumberOfGames(int x){
+		numberOfGames += x;
+	}
 }
