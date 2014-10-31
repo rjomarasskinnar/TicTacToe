@@ -4,7 +4,7 @@ public class Board {
 	private char[] board = new char[9];
 
 	public Board() {
-		for(int i = 0; i < 3; i++){
+		for(int i = 0; i < 9; i++){
 				board[i] = ' ';
 		}// initializes Board cells with whitespace in them
 	}
@@ -24,7 +24,7 @@ public class Board {
 		}
 	}
 	public boolean boardIsFull(){
-		for(int i = 0; i < 3; i++){
+		for(int i = 0; i < 9; i++){
 			if(board[i] == ' '){
 				return false;
 			}
