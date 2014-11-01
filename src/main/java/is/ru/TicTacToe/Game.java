@@ -186,25 +186,23 @@ public class Game {
 	}
 
 	public void play(char players) {
-		if (players == '2') {
-			startingPlayer(players).takeTurn(board);
+		startingPlayer(players).takeTurn(board);
+		board.printBoard();
+		turns++;
+		while (!isOver()) {
+			whoPlays(players).takeTurn(board);
 			board.printBoard();
 			turns++;
-			while (!isOver()) {
-				whoPlays(players).takeTurn(board);
-				board.printBoard();
-				turns++;
-			}
-			if (checkForWinner('X')) {
-				p1.winner();
-			}
-			else if (checkForWinner('O')) {
-				if (players == '2') { 
+		}
+		if (checkForWinner('X')) {
+			p1.winner();
+		}
+		else if (checkForWinner('O')) {
+			if (players == '2') { 
 					p2.winner();
-					}
-                		else {
-					a1.winner(); 
 				}
+        	else {
+				a1.winner(); 
 			}
 		}
 		else {
@@ -213,10 +211,10 @@ public class Game {
 	}
 	public void instructions() {
 		System.out.printf(" %s %s %s %s %s\n", '1', "|", '2', "|", '3');
-                System.out.printf("-----------\n");
-                System.out.printf(" %s %s %s %s %s\n", '4', "|", '5', "|", '6');
-                System.out.printf("-----------\n");
-                System.out.printf(" %s %s %s %s %s\n", '7', "|", '8', "|", '9');
+        System.out.printf("-----------\n");
+        System.out.printf(" %s %s %s %s %s\n", '4', "|", '5', "|", '6');
+        System.out.printf("-----------\n");
+        System.out.printf(" %s %s %s %s %s\n", '7', "|", '8', "|", '9');
 	}
 
 	public static void main(String[] args) {
