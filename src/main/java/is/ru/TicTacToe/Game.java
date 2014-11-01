@@ -93,13 +93,6 @@ public class Game {
 		else {
 			return false;
 		}
-	}
-	public static void main(String[] args) {
-		Game game = new Game();
-	}
-	public boolean isWinner(char token) {
-		return true;
-	}
 	public boolean checkForWinner(char token) {
 		boolean topLine = false;
 		boolean middleLineHorizontal = false;
