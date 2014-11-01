@@ -64,29 +64,59 @@ public class TicTacToeTest {
 	/*@Test
 	public void testCheckForWinnerHorizontal(){
 		Game testGame = new Game();
-		Game.getBoard().updateBoard(1, 'X');
-		Game.getBoard().updateBoard(2, 'X');
-		Game.getBoard().updateBoard(3, 'X');
-		assertEquals(true, checkForWinner('X'))
+		testGame.getBoard().updateBoard(1, 'X');
+		testGame.getBoard().updateBoard(2, 'X');
+		testGame.getBoard().updateBoard(3, 'X');
+		assertEquals(true, testGame.checkForWinner('X'))
 	}
 
 	@Test
         public void testCheckForWinnerVertical(){
                 Game testGame = new Game();
-                Game.getBoard().updateBoard(1, 'X');
-                Game.getBoard().updateBoard(4, 'X');
-                Game.getBoard().updateBoard(7, 'X');
-                assertEquals(true, checkForWinner('X'))
+                testGame.getBoard().updateBoard(1, 'X');
+                testGame.getBoard().updateBoard(4, 'X');
+                testGame.getBoard().updateBoard(7, 'X');
+                assertEquals(true, testGame.checkForWinner('X'))
         }
 
 	@Test
         public void testCheckForWinnerDiagonal(){
                 Game testGame = new Game();
-                Game.getBoard().updateBoard(2, 'X');
-                Game.getBoard().updateBoard(4, 'X');
-                Game.getBoard().updateBoard(6, 'X');
-                assertEquals(true, checkForWinner('X'))
+                testGame.getBoard().updateBoard(2, 'X');
+                testGame.getBoard().updateBoard(4, 'X');
+                testGame.getBoard().updateBoard(6, 'X');
+                assertEquals(true, testGame.checkForWinner('X'))
         }*/
-
-
+	/*@Test
+	public void testIsOverWinner() {
+		Game testGame = new Game();
+		testGame.getBoard().updateBoard(1, 'X');
+		testGame.getBoard().updateBoard(2, 'X');
+		testGame.getBoard().updateBoard(3, 'X');
+		assertEquals(true, testGame.isOver());
+	}
+	
+	@Test
+	public void testIsOverFullBoard() {
+		Game testGame = new Game();
+		testGame.getBoard().updateBoard(1, 'X');
+                testGame.getBoard().updateBoard(2, 'X');
+                testGame.getBoard().updateBoard(3, 'X');
+		testGame.getBoard().updateBoard(4, 'X');
+                testGame.getBoard().updateBoard(5, 'X');
+                testGame.getBoard().updateBoard(6, 'X');
+		testGame.getBoard().updateBoard(7, 'X');
+                testGame.getBoard().updateBoard(8, 'X');
+                testGame.getBoard().updateBoard(9, 'X');
+		assertEquals(true, testGame.isOver());
+	}
+	
+	@Test
+	public void testIsOverNoWinnerNotFull() {
+		Game testGame = new Game();
+		testGame.getBoard().updateBoard(1, 'X');
+                testGame.getBoard().updateBoard(5, 'X');
+                testGame.getBoard().updateBoard(3, 'X');
+		assertEquals(false, testGame.isOver());
+	}*/
 }
