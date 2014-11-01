@@ -21,7 +21,6 @@ public class Game {
 		p1 = new HumanPlayer('X');
 		p2 = new HumanPlayer('O');
 		a1 = new AIPlayer('X');
-		whoseTurn.set(startingPlayer());
 	}
 
 	public void newRound(char players) {
@@ -72,25 +71,24 @@ public class Game {
 		System.out.println(p2.getWins());
 	}
 
-	public Player startingPlayer(char players) {
+	public char startingPlayer(char players) {
 		if(numberOfGames % 2 == 0){
-			return p1;
+			return 'p1';
 		}
 		else {
-			if (players == '2') { return p2; }
-            		else { return a1; }
+			if (players == '2') { return 'p2'; }
+            		else { return 'a1'; }
 		}
 	}
-	public Player whoPlays(char players) {
-
+	public char whoPlays(char players) {
 		if(turns % 2 == 0){
-                    return p1;
-            	}
-            	else {
-            		if (players == '2') { return p2; }
-                	else { return a1; }
-            	}
-        }
+            return 'p1';
+    	}
+    	else {
+    		if (players == '2') { return 'p2'; }
+        	else { return 'a1'; }
+    	}
+    }
 	public boolean isOver() {
 		if (checkForWinner('X')) {
 			return true;
@@ -180,15 +178,15 @@ public class Game {
 		numberOfGames = x;
 	}
 
-	public Player getHumanPlayer1() {
+	public HumanPlayer getHumanPlayer1() {
 		return p1;
 	}
 
-	public Player getHumanPlayer2() {
+	public HumanPlayer getHumanPlayer2() {
 		return p2;
 	}
 
-	public Player getAIPlayer() {
+	public AIPlayer getAIPlayer() {
 		return a1;
 	}
 
@@ -197,11 +195,13 @@ public class Game {
 	}
 
 	public void play(char players) {
-		startingPlayer(players).takeTurn(board);
+		char currentPlayer = startingPlayer(players);
+		playTurn(currentPlayer);
 		board.printBoard();
 		turns++;
 		while (!isOver()) {
-			whoPlays(players).takeTurn(board);
+			currentPlayer = whoPlays(players);
+			playTurn(currentPlayer);
 			board.printBoard();
 			turns++;
 		}
@@ -220,6 +220,19 @@ public class Game {
 			System.out.println("It's a tie!");
 		}
 	}
+
+	public void playTurn(char player) {
+		if (player == 'p1') {
+			p1.takeTurn(board);
+		}
+		else if (player == 'p2') {
+			p2.takeTurn(board);
+		}
+		else {
+			a1.takeTurn(board);
+		}
+	}
+
 	public void instructions() {
 		System.out.printf(" %s %s %s %s %s\n", '1', "|", '2', "|", '3');
         System.out.printf("-----------\n");
