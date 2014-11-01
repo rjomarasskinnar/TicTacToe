@@ -13,6 +13,7 @@ public class Game {
 		numberOfGames = 0;
 		p1 = new HumanPlayer('X');
 		p2 = new HumanPlayer('O');
+		a1 = new AIPlayer('X');
 	}
 
 	public void newRound() {
@@ -71,5 +72,14 @@ public class Game {
 			 throw new IllegalArgumentException("Please Insert a number higher than 0");
 		}
 		numberOfGames = x;
+	}
+	public Player getHumanPlayer1() {
+		return p1;
+	}
+	publci Player getHumanPlayer2() {
+		return p2;
+	}
+	public Player getAIPlayer() {
+		return a1;
 	}
 }
