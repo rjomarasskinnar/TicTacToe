@@ -2,67 +2,96 @@ package is.ru.TicTacToe;
 
 import java.util.*;
 
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
+
 public class Game {
-	private int numberOfGames = 0;
-	
-	public void newGame() {
-		Board board = new Board();
-		HumanPlayer p1 = new HumanPlayer('X');
-		HumanPlayer p2 = new HumanPlayer('O');
+	private int numberOfGames;
+	private Board board;
+	private HumanPlayer p1;
+	private HumanPlayer p2;
+	public ObjectProperty<HumanPlayer> whoseTurn = new SimpleObjectProperty<HumanPlayer>();
+
+	public Game() {
+		board = new Board();
 		numberOfGames = 0;
+		p1 = new HumanPlayer('X');
+		p2 = new HumanPlayer('O');
+		whoseTurn.set(startingPlayer());
 	}
-	
-	public void newRound(HumanPlayer p1, HumanPlayer p2) {
-		Board board = new Board();
+
+	public void newRound() {
+		board = new Board();
 		numberOfGames++;
 	}
-	
-	public void endRound(HumanPlayer p1, HumanPlayer p2) {
+
+	public void endRound() {
 		if(checkIfOver()){
-			System.out.print("Score: PlayerX ");
-			System.out.print(p1.getWins());
-			System.out.print(" - ");
-			System.out.print("PlayerO ");
-			System.out.println(p1.getWins());
+			printScore();
 
 			System.out.println("Do you wish to continue? (Y/N)");
 			Scanner s = new Scanner(System.in);
 			char tmp = s.next().charAt(0);
 			if(tmp == 'Y' || tmp == 'y'){
-				newRound(p1, p2);
+				newRound();
 			}
 			else if(tmp == 'N' || tmp == 'n'){
 				System.out.print("Game is over. Congratulations player");
-				System.out.print(checkForWinner(p1, p2).getToken());
+				System.out.print(checkForWinner().getToken());
 				System.out.println(" you are the winner!!!");
 			}
 		}
 	}
-	
-	public HumanPlayer startingPlayer(HumanPlayer p1, HumanPlayer p2) {
+
+	private void printScore() {
+		System.out.print("Score: PlayerX ");
+		System.out.print(p1.getWins());
+		System.out.print(" - ");
+		System.out.print("PlayerO ");
+		System.out.println(p1.getWins());
+	}
+
+	public HumanPlayer startingPlayer() {
 		if(numberOfGames % 2 == 0){
-		return p1;
+			return p1;
 		}
-		else{
-		return p2;
+		else {
+			return p2;
 		}
 	}
-	
+
 	public boolean checkIfOver() {
+		
 		return false;
 	}
-	public static void main(String[] args) {
-		Game game = new Game();
-		game.newGame();
+	
+	public HumanPlayer checkForWinner() {
+		return p1;
 	}
 	
-	public HumanPlayer checkForWinner(HumanPlayer p1, HumanPlayer p2) {
-		return p1;
-	} 
 	public void setNumberOfGames(int x){
 		if(x < 0){
 			 throw new IllegalArgumentException("Please Insert a number higher than 0");
 		}
-		numberOfGames += x;
+		numberOfGames = x;
 	}
+	
+	public void takeTurn(int cell) {
+		if (cell >= 0 && cell <= 8)
+        {
+                board.updateBoard(cell , whoseTurn.get().getToken());
+                if(whoseTurn.get() == p1) {
+                	whoseTurn.set(p2);
+                }
+                else {
+                	whoseTurn.set(p1);
+                }
+        }
+	}
+	
+	public Board getBoard() {
+		return board;
+	}
+
 }
+
