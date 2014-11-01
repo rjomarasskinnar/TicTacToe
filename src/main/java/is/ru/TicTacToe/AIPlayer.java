@@ -133,9 +133,10 @@ public class AIPlayer extends Player{
 			}
 		}
 		else {
-				do {
-					int rand = r.nextInt(8);
-				} while (board.getBoardCells(rand) != ' ');
+			int rand = 0;
+			do {
+				rand = r.nextInt(8);
+			} while (board.getBoardCells(rand) != ' ');
 			return rand;
 		}
 	}

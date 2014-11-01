@@ -85,7 +85,7 @@ public class Game {
 	}
 	public boolean isWinner(char token) {
 		return true;
-	
+	}
 	public boolean checkForWinner(char token) {
 		boolean topLine = false;
 		boolean middleLineHorizontal = false;
