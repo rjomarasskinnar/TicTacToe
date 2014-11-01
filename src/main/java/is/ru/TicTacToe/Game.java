@@ -72,12 +72,9 @@ public class Game {
 	public static void main(String[] args) {
 		Game game = new Game();
 	}
-	
 	public boolean isWinner(char token) {
-		
 		return true;
 	}
-
 	public void setNumberOfGames(int x){
 		if(x < 0){
 			 throw new IllegalArgumentException("Please Insert a number higher than 0");
@@ -87,7 +84,7 @@ public class Game {
 	public Player getHumanPlayer1() {
 		return p1;
 	}
-	publci Player getHumanPlayer2() {
+	public Player getHumanPlayer2() {
 		return p2;
 	}
 	public Player getAIPlayer() {
