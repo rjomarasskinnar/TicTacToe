@@ -61,4 +61,32 @@ public class TicTacToeTest {
                	Game testgame = new Game();
 		testgame.setNumberOfGames(-8);//Negative number should throw an exception
 	}
+	/*@Test
+	public void testCheckForWinnerHorizontal(){
+		Game testGame = new Game();
+		Game.getBoard().updateBoard(1, 'X');
+		Game.getBoard().updateBoard(2, 'X');
+		Game.getBoard().updateBoard(3, 'X');
+		assertEquals(true, checkForWinner('X'))
+	}
+
+	@Test
+        public void testCheckForWinnerVertical(){
+                Game testGame = new Game();
+                Game.getBoard().updateBoard(1, 'X');
+                Game.getBoard().updateBoard(4, 'X');
+                Game.getBoard().updateBoard(7, 'X');
+                assertEquals(true, checkForWinner('X'))
+        }
+
+	@Test
+        public void testCheckForWinnerDiagonal(){
+                Game testGame = new Game();
+                Game.getBoard().updateBoard(2, 'X');
+                Game.getBoard().updateBoard(4, 'X');
+                Game.getBoard().updateBoard(6, 'X');
+                assertEquals(true, checkForWinner('X'))
+        }*/
+
+
 }
