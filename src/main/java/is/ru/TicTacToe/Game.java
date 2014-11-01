@@ -73,20 +73,20 @@ public class Game {
 
 	public String startingPlayer(char players) {
 		if(numberOfGames % 2 == 0){
-			return 'p1';
+			return "p1";
 		}
 		else {
-			if (players == '2') { return 'p2'; }
-            		else { return 'a1'; }
+			if (players == '2') { return "p2"; }
+            		else { return "a1"; }
 		}
 	}
 	public String whoPlays(char players) {
 		if(turns % 2 == 0){
-            return 'p1';
+            return "p1";
     	}
     	else {
-    		if (players == '2') { return 'p2'; }
-        	else { return 'a1'; }
+    		if (players == '2') { return "p2"; }
+        	else { return "a1"; }
     	}
     }
 	public boolean isOver() {
@@ -222,10 +222,10 @@ public class Game {
 	}
 
 	public void playTurn(String player) {
-		if (player == 'p1') {
+		if (player == "p1") {
 			p1.takeTurn(board);
 		}
-		else if (player == 'p2') {
+		else if (player == "p2") {
 			p2.takeTurn(board);
 		}
 		else {
