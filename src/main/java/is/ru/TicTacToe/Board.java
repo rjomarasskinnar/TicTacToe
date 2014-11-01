@@ -1,11 +1,16 @@
 package is.ru.TicTacToe;
 
+import javafx.beans.property.SimpleStringProperty;
+
 public class Board {
 	private char[] board = new char[9];
+	
+	public SimpleStringProperty[] stringBoard = new SimpleStringProperty[9];
 
 	public Board() {
 		for(int i = 0; i < 9; i++){
 				board[i] = ' ';
+				stringBoard[i] = new SimpleStringProperty("    ");
 		}// initializes Board cells with whitespace in them
 	}
 
@@ -19,12 +24,12 @@ public class Board {
 
 	public boolean updateBoard(int x, char token) {
 		if (board[x] != ' ') {
-			//throw new IllegalArgumentException("Cannot put " + token + " there, the cell has already been ticked");
 			System.out.println("Cannot put " + token + " there, the cell has already been ticked");
 			return false;
 		}
 		else {
 			board[x] = token;
+			stringBoard[x].set(String.valueOf(token));	
 			return true;
 		}
 	}
@@ -43,4 +48,5 @@ public class Board {
 		return board[cell];
 	}
 }
+
 

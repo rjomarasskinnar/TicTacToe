@@ -2,6 +2,9 @@ package is.ru.TicTacToe;
 
 import java.util.*;
 
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
+
 public class Game {
 	private int numberOfGames;
 	private int turns;
@@ -9,6 +12,7 @@ public class Game {
 	private HumanPlayer p1;
 	private HumanPlayer p2;
 	private AIPlayer a1;
+	public ObjectProperty<HumanPlayer> whoseTurn = new SimpleObjectProperty<HumanPlayer>();
 
 	public Game() {
 		board = new Board();
@@ -17,6 +21,7 @@ public class Game {
 		p1 = new HumanPlayer('X');
 		p2 = new HumanPlayer('O');
 		a1 = new AIPlayer('X');
+		whoseTurn.set(startingPlayer());
 	}
 
 	public void newRound() {
@@ -37,8 +42,6 @@ public class Game {
 				newRound();
 			}
 			else if(tmp == 'N' || tmp == 'n'){
-				//HumanPlayer p1 = new HumanPlayer('X');
-				//HumanPlayer p2 = new HumanPlayer('O');
 				System.out.print("Game is over. Congratulations Player ");
 				if(p1.getWins() > p2.getWins()){
 					System.out.print(p1.getToken());
@@ -71,6 +74,7 @@ public class Game {
 			return p2;
 		}
 	}
+
 	public HumanPlayer whoPlays() {
 		if(turns % 2 == 0){
                         return p1;
@@ -162,21 +166,26 @@ public class Game {
 			rightDiagonal || 
 			leftDiagonal);
 	}
+	
 	public void setNumberOfGames(int x){
 		if(x < 0){
 			 throw new IllegalArgumentException("Please Insert a number higher than 0");
 		}
 		numberOfGames = x;
 	}
+
 	public Player getHumanPlayer1() {
 		return p1;
 	}
+
 	public Player getHumanPlayer2() {
 		return p2;
 	}
+
 	public Player getAIPlayer() {
 		return a1;
 	}
+
 	public Board getBoard(){
 		return board;
 	}
@@ -216,4 +225,22 @@ public class Game {
 		game.play();
 		game.endRound();
 	}
+	
+	public void takeTurn(int cell) {
+		if (cell >= 0 && cell <= 8)
+        {
+                board.updateBoard(cell , whoseTurn.get().getToken());
+                if(whoseTurn.get() == p1) {
+                	whoseTurn.set(p2);
+                }
+                else {
+                	whoseTurn.set(p1);
+                }
+        }
+	}
+	
+	public Board getBoard() {
+		return board;
+	}
 }
+
