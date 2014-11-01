@@ -74,13 +74,28 @@ public class AIPlayer extends Player{
 	}	
 	private int checkThrees(int a, int b, int c, Board board, char checkToken) {
 		if (board.getBoardCells(a) == checkToken && board.getBoardCells(b) == checkToken) {
-			return c;
+			if (cellEmpty(board, c)) {
+				return c;
+			}
+			else {
+				return -1;
+			}
 		}
 		else if (board.getBoardCells(a) == checkToken && board.getBoardCells(c) == checkToken) {
-			return b;
+			if (cellEmpty(board, b)) {
+				return b;
+			}
+			else {
+				return -1;
+			}
 		}
 		else if (board.getBoardCells(b) == checkToken && board.getBoardCells(c) == checkToken) {
-			return a;
+			if (cellEmpty(board, a)) {
+				return a;
+			}
+			else {
+				return -1;
+			}
 		}
 		else {
 			return -1;
@@ -116,7 +131,13 @@ public class AIPlayer extends Player{
 			else if (getBoardCells(4) == enemyToken) { // p1 put in center, put in corner
 				return randomCorner();
 			}
-			
+			else {
+				do {
+					int rand = r.nextInt(8);
+				} while (board.getBoardCells(rand) != ' ');
+				return rand;
+			}
+
 		}
 		return 0;
 	}
