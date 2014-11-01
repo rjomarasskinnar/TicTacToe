@@ -227,20 +227,15 @@ public class Game {
 	}
 	
 	public void takeTurn(int cell) {
-		if (cell >= 0 && cell <= 8)
-        {
-                board.updateBoard(cell , whoseTurn.get().getToken());
-                if(whoseTurn.get() == p1) {
-                	whoseTurn.set(p2);
-                }
-                else {
-                	whoseTurn.set(p1);
-                }
-        }
-	}
-	
-	public Board getBoard() {
-		return board;
+		if (cell >= 0 && cell <= 8) {
+                	board.updateBoard(cell , whoseTurn.get().getToken());
+                	if(whoseTurn.get() == p1) {
+                		whoseTurn.set(p2);
+                	}
+                	else {
+                		whoseTurn.set(p1);
+                	}
+        	}
 	}
 }
 
