@@ -22,15 +22,15 @@ public class AIPlayer extends Player{
 		}
 	}
 
-	public void takeTurn(Board board, AIPlayer a) {
+	public void takeTurn(Board board) {
 		if (winPossible(token) != -1) { // if win is possible in next move
-			board.updateBoard(winPossible(token, board), a);
+			board.updateBoard(winPossible(token, board), token);
 		}
 		else if (lossPrevention() != -1) { //loss prevention
-			board.updateBoard(lossPrevention(board), a);
+			board.updateBoard(lossPrevention(board), token);
 		} 
 		else {
-			board.updateBoard(preferredMove(board), a);
+			board.updateBoard(preferredMove(board), token);
 		}
 	}
 
@@ -122,13 +122,13 @@ public class AIPlayer extends Player{
 			return randomCorner();
 		} 
 		else if (evaluate(board) == 1) { // second = put in center if p1 put in corner
-			if (getBoardCells(0) == enemyToken ||
-				getBoardCells(2) == enemyToken ||
-				getBoardCells(6) == enemyToken ||
-				getBoardCells(8) == enemyToken ||) {
+			if (board.getBoardCells(0) == enemyToken || 
+				board.getBoardCells(2) == enemyToken || 
+				board.getBoardCells(6) == enemyToken || 
+				board.getBoardCells(8) == enemyToken) {
 				return 4;
 			}
-			else if (getBoardCells(4) == enemyToken) { // p1 put in center, put in corner
+			else if (board.getBoardCells(4) == enemyToken) { // p1 put in center, put in corner
 				return randomCorner();
 			}
 			else {
