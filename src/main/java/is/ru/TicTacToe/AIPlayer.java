@@ -36,7 +36,12 @@ public class AIPlayer extends Player{
 	public void winner() {
 		numberOfWins++;
 	}
-
+	public int getWins() {
+		return numberOfWins;
+	}
+	public char getToken() {
+		return token;
+	}
 	private int winPossible(char checkToken, Board board) {
 		//8 ways to win
 		/*

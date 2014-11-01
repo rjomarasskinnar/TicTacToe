@@ -19,14 +19,14 @@ public class Game {
 		a1 = new AIPlayer('X');
 	}
 
-	public void newRound() {
+	public void newRound(char players) {
 		board = new Board();
 		numberOfGames++;
-		play();
-		endRound();
+		play(players);
+		endRound(players);
 	}
 
-	public void endRound() {
+	public void endRound(char players) {
 		if(isOver()){
 			printScore();
 
@@ -34,15 +34,19 @@ public class Game {
 			Scanner s = new Scanner(System.in);
 			char tmp = s.next().charAt(0);
 			if(tmp == 'Y' || tmp == 'y'){
-				newRound();
+				newRound(players);
 			}
 			else if(tmp == 'N' || tmp == 'n'){
-				//HumanPlayer p1 = new HumanPlayer('X');
-				//HumanPlayer p2 = new HumanPlayer('O');
 				System.out.print("Game is over. Congratulations Player ");
 				if(p1.getWins() > p2.getWins()){
 					System.out.print(p1.getToken());
 					System.out.println(" you are the winner!!!");
+				}
+				else if (players == '1') {
+					if (a1.getWins() > p1.getWins()) {
+						System.out.print(a1.getToken());
+						System.out.println(" is the winner!");
+					}
 				}
 				else if (p2.getWins() > p1.getWins()){
 					System.out.print(p2.getToken());
@@ -63,29 +67,27 @@ public class Game {
 		System.out.println(p2.getWins());
 	}
 
-	public HumanPlayer startingPlayer(char players) {
+	public Player startingPlayer(char players) {
 		if(numberOfGames % 2 == 0){
 			return p1;
 		}
 		else {
 			if (players == '2') { return p2; }
-            else { return a1; }
+            		else { return a1; }
 		}
 	}
-	public HumanPlayer whoPlays(char players) {
+	public Player whoPlays(char players) {
 		if(turns % 2 == 0){
                     return p1;
-            }
-            else {
-            	if (players == '2') { return p2; }
-                else { return a1; }
-            }
+            	}
+            	else {
+            		if (players == '2') { return p2; }
+                	else { return a1; }
+            	}
         }
-	}
-
 	public boolean isOver() {
 		if (checkForWinner('X')) {
-			return true;	
+			return true;
 		}
 		else if (checkForWinner('O')) {
 			return true;
@@ -182,9 +184,9 @@ public class Game {
 	public Board getBoard(){
 		return board;
 	}
-	
+
 	public void play(char players) {
-		if (players = '2') {
+		if (players == '2') {
 			startingPlayer(players).takeTurn(board);
 			board.printBoard();
 			turns++;
@@ -195,14 +197,18 @@ public class Game {
 			}
 			if (checkForWinner('X')) {
 				p1.winner();
-			} 
+			}
 			else if (checkForWinner('O')) {
-				if (players == '2') { p2.winner(); }
-                else { a1.winner(); }
+				if (players == '2') { 
+					p2.winner();
+					}
+                		else {
+					a1.winner(); 
+				}
 			}
-			else {
-				System.out.println("It's a tie!");
-			}
+		}
+		else {
+			System.out.println("It's a tie!");
 		}
 	}
 	public void instructions() {
@@ -212,15 +218,14 @@ public class Game {
                 System.out.printf("-----------\n");
                 System.out.printf(" %s %s %s %s %s\n", '7', "|", '8', "|", '9');
 	}
-	
+
 	public static void main(String[] args) {
 		Game game = new Game();
-		game.instructions();	
 		System.out.printf("1 player or 2 players? (1/2) ");
-		Scanner s = new Scanner(System.in);
-			char tmp = s.next().charAt(0);
+                Scanner s = new Scanner(System.in);
+                        char tmp = s.next().charAt(0);
+		game.instructions();
 		game.play(tmp);
-		game.endRound();
+		game.endRound(tmp);
 	}
 }
-loan.
