@@ -83,6 +83,16 @@ public class TicTacToeTest {
                 testGame.getBoard().updateBoard(6, 'X');
                 assertEquals(true, testGame.checkForWinner('X'));
         }
+	
+	@Test
+	public void testCheckForWinnerNoWin(){
+                Game testGame = new Game();
+                testGame.getBoard().updateBoard(0, 'X');
+                testGame.getBoard().updateBoard(4, 'X');
+                testGame.getBoard().updateBoard(5, 'X');
+                assertEquals(false, testGame.checkForWinner('X'));
+        }
+
 
 	/*@Test
 	public void testIsOverWinner() {
