@@ -7,6 +7,7 @@ public class Game {
 	private Board board;
 	private HumanPlayer p1;
 	private HumanPlayer p2;
+	private AIPlayer a1;
 
 	public Game() {
 		board = new Board();
