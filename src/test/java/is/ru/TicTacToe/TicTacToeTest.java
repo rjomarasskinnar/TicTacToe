@@ -39,8 +39,6 @@ public class TicTacToeTest {
 	@Test
 	public void testStarterPlayerOdd(){
 		Game testgame = new Game();
-		//HumanPlayer p1 = new HumanPlayer('X');
-		//HumanPlayer p2 = new HumanPlayer('O');//makes the 2 neccesary players to be able to call the function
 		testgame.setNumberOfGames(7);//odd number = should return player 2
 		HumanPlayer p = testgame.startingPlayer();
 		assertEquals('O', p.getToken());
@@ -49,9 +47,7 @@ public class TicTacToeTest {
 	@Test
         public void testStarterPlayerEven(){
                 Game testgame = new Game();
-                //HumanPlayer p1 = new HumanPlayer('X');
-                //HumanPlayer p2 = new HumanPlayer('O');//makes the 2 neccesary players to be able to call the function
-                testgame.setNumberOfGames(8);//Even number = should return player 1
+                testgame.setNumberOfGames(8); //Even number = should return player 1
 		HumanPlayer p = testgame.startingPlayer();
                 assertEquals('X', p.getToken());
 	}
@@ -59,9 +55,9 @@ public class TicTacToeTest {
 	@Test(expected = IllegalArgumentException.class)
         public void testSetNumberOfGamesNegative(){
                	Game testgame = new Game();
-		testgame.setNumberOfGames(-8);//Negative number should throw an exception
+		testgame.setNumberOfGames(-8); //Negative number should throw an exception
 	}
-	/*@Test
+	@Test
 	public void testCheckForWinnerHorizontal(){
 		Game testGame = new Game();
 		Game.getBoard().updateBoard(1, 'X');
@@ -86,7 +82,7 @@ public class TicTacToeTest {
                 Game.getBoard().updateBoard(4, 'X');
                 Game.getBoard().updateBoard(6, 'X');
                 assertEquals(true, checkForWinner('X'))
-        }*/
+        }
 
 
 }
