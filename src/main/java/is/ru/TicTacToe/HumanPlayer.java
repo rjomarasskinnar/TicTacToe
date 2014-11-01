@@ -22,8 +22,9 @@ public class HumanPlayer {
                         if (boxno >=1 && boxno <= 9)
                         {
                                 boxno = boxno - 1;
-                                board.updateBoard(boxno , token);
-                                validInput = true;
+                                if(board.updateBoard(boxno , token)) {
+                                	validInput = true;
+				}
                         }
 
                 }

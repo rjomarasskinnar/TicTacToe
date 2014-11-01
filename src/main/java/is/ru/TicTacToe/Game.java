@@ -35,8 +35,8 @@ public class Game {
 				newRound();
 			}
 			else if(tmp == 'N' || tmp == 'n'){
-		HumanPlayer p1 = new HumanPlayer('X');
-		HumanPlayer p2 = new HumanPlayer('O');
+				//HumanPlayer p1 = new HumanPlayer('X');
+				//HumanPlayer p2 = new HumanPlayer('O');
 				System.out.print("Game is over. Congratulations Player ");
 				if(p1.getWins() > p2.getWins()){
 					System.out.print(p1.getToken());

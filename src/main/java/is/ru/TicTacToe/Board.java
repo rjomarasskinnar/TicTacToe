@@ -17,12 +17,15 @@ public class Board {
 		System.out.printf(" %s %s %s %s %s\n", board[6], "|", board[7], "|", board[8]);
 	}
 
-	public void updateBoard(int x, char token) {
+	public boolean updateBoard(int x, char token) {
 		if (board[x] != ' ') {
-			throw new IllegalArgumentException("Cannot put " + token + " there, the cell has already been ticked");
+			//throw new IllegalArgumentException("Cannot put " + token + " there, the cell has already been ticked");
+			System.out.println("Cannot put " + token + " there, the cell has already been ticked");
+			return false;
 		}
 		else {
 			board[x] = token;
+			return true;
 		}
 	}
 
