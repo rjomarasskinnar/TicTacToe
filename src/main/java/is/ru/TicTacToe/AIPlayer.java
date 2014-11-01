@@ -139,6 +139,7 @@ public class AIPlayer extends Player{
 			} while (board.getBoardCells(rand) != ' ');
 			return rand;
 		}
+		return 0;
 	}
 	private boolean cellEmpty(Board board, int cell) {
 		if (board.getBoardCells(cell) == ' ') {
@@ -169,7 +170,7 @@ public class AIPlayer extends Player{
 			else if (rand == 2) {
 				return 6;
 			}
-			else if (rand == 3) {
+			else {
 				return 8;
 			}
 	}
