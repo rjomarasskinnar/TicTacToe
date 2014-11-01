@@ -71,9 +71,72 @@ public class Game {
 		Game game = new Game();
 	}
 	
-	public boolean isWinner(char token) {
-		
-		return true;
+	public boolean checkForWinner(char token) {
+		boolean topLine = false;
+		boolean middleLineHorizontal = false;
+		boolean bottomLine = false;
+		boolean leftLine = false;
+		boolean middleLineVertical = false;
+		boolean rightLine = false;
+		boolean rightDiagonal = false;
+		boolean leftDiagonal = false;
+
+		if(board.getBoardCells(0) == token && 
+		   board.getBoardCells(1) == token && 
+		   board.getBoardCells(2) == token) {
+			topLine = true;
+		}
+
+		if(board.getBoardCells(3) == token && 
+		   board.getBoardCells(4) == token && 
+		   board.getBoardCells(5) == token) {
+			middleLineHorizontal = true;
+		}
+
+		if(board.getBoardCells(6) == token && 
+		   board.getBoardCells(7) == token && 
+		   board.getBoardCells(8) == token) {
+			bottomLine = true;
+		}
+
+		if(board.getBoardCells(0) == token && 
+		   board.getBoardCells(3) == token && 
+		   board.getBoardCells(6) == token) {
+			leftLine = true;
+		}
+
+		if(board.getBoardCells(1) == token && 
+		   board.getBoardCells(4) == token && 
+		   board.getBoardCells(7) == token) {
+			middleLineVertical = true;
+		}
+
+		if(board.getBoardCells(2) == token && 
+		   board.getBoardCells(5) == token && 
+		   board.getBoardCells(8) == token) {
+			rightLine = true;
+		}
+
+		if(board.getBoardCells(0) == token && 
+		   board.getBoardCells(4) == token && 
+		   board.getBoardCells(8) == token) {
+			rightDiagonal = true;
+		}
+
+		if(board.getBoardCells(2) == token && 
+		   board.getBoardCells(4) == token && 
+		   board.getBoardCells(6) == token) {
+			leftDiagonal = true;
+		}
+
+		return (topLine || 
+			middleLineHorizontal || 
+			bottomLine || 
+			leftLine || 
+			middleLineVertical || 
+			rightLine || 
+			rightDiagonal || 
+			leftDiagonal);
 	}
 
 	public void setNumberOfGames(int x){
