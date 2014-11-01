@@ -33,6 +33,9 @@ public class AIPlayer extends Player{
 			board.updateBoard(preferredMove(board), token);
 		}
 	}
+	public void winner() {
+		numberOfWins++;
+	}
 
 	private int winPossible(char checkToken, Board board) {
 		//8 ways to win

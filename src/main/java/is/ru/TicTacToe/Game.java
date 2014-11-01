@@ -63,21 +63,24 @@ public class Game {
 		System.out.println(p2.getWins());
 	}
 
-	public HumanPlayer startingPlayer() {
+	public HumanPlayer startingPlayer(char players) {
 		if(numberOfGames % 2 == 0){
 			return p1;
 		}
 		else {
-			return p2;
+			if (players == '2') { return p2; }
+            else { return a1; }
 		}
 	}
-	public HumanPlayer whoPlays() {
+	public HumanPlayer whoPlays(char players) {
 		if(turns % 2 == 0){
-                        return p1;
-                }
-                else {
-                        return p2;
-                }
+                    return p1;
+            }
+            else {
+            	if (players == '2') { return p2; }
+                else { return a1; }
+            }
+        }
 	}
 
 	public boolean isOver() {
@@ -179,27 +182,28 @@ public class Game {
 		return board;
 	}
 	
-	public void play() {
-		//board.printBoard();
-		startingPlayer().takeTurn(board);
-		board.printBoard();
-		turns++;
-		while (!isOver()) {
-			whoPlays().takeTurn(board);
+	public void play(char players) {
+		if (players = '2') {
+			startingPlayer(players).takeTurn(board);
 			board.printBoard();
 			turns++;
-		}
-		if (checkForWinner('X')) {
-			p1.winner();
-		} 
-		else if (checkForWinner('O')) {
-			p2.winner();
-		}
-		else {
-			System.out.println("It's a tie!");
+			while (!isOver()) {
+				whoPlays(players).takeTurn(board);
+				board.printBoard();
+				turns++;
+			}
+			if (checkForWinner('X')) {
+				p1.winner();
+			} 
+			else if (checkForWinner('O')) {
+				if (players == '2') { p2.winner(); }
+                else { a1.winner(); }
+			}
+			else {
+				System.out.println("It's a tie!");
+			}
 		}
 	}
-
 	public void instructions() {
 		System.out.printf(" %s %s %s %s %s\n", '1', "|", '2', "|", '3');
                 System.out.printf("-----------\n");
@@ -211,7 +215,11 @@ public class Game {
 	public static void main(String[] args) {
 		Game game = new Game();
 		game.instructions();	
-		game.play();
+		System.out.printf("1 player or 2 players? (1/2) ");
+		Scanner s = new Scanner(System.in);
+			char tmp = s.next().charAt(0);
+		game.play(tmp);
 		game.endRound();
 	}
 }
+loan.
