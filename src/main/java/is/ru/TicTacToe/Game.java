@@ -21,6 +21,8 @@ public class Game {
 		p1 = new HumanPlayer('X');
 		p2 = new HumanPlayer('O');
 		a1 = new AIPlayer('X');
+		whoseTurn.set(startingPlayer());
+
 	}
 
 	public void newRound(char players) {
@@ -250,5 +252,16 @@ public class Game {
 		game.play(tmp);
 		game.endRound(tmp);
 	}
+	    public void takeTurn(int cell) {
+        if (cell >= 0 && cell <= 8) {
+                    board.updateBoard(cell , whoseTurn.get().getToken());
+                    if(whoseTurn.get() == p1) {
+                        whoseTurn.set(p2);
+                    }
+                    else {
+                        whoseTurn.set(p1);
+                    }
+            }
+    }
 }
 
