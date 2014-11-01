@@ -71,7 +71,7 @@ public class Game {
 		System.out.println(p2.getWins());
 	}
 
-	public char startingPlayer(char players) {
+	public String startingPlayer(char players) {
 		if(numberOfGames % 2 == 0){
 			return 'p1';
 		}
@@ -80,7 +80,7 @@ public class Game {
             		else { return 'a1'; }
 		}
 	}
-	public char whoPlays(char players) {
+	public String whoPlays(char players) {
 		if(turns % 2 == 0){
             return 'p1';
     	}
@@ -195,7 +195,7 @@ public class Game {
 	}
 
 	public void play(char players) {
-		char currentPlayer = startingPlayer(players);
+		string currentPlayer = startingPlayer(players);
 		playTurn(currentPlayer);
 		board.printBoard();
 		turns++;
@@ -221,7 +221,7 @@ public class Game {
 		}
 	}
 
-	public void playTurn(char player) {
+	public void playTurn(String player) {
 		if (player == 'p1') {
 			p1.takeTurn(board);
 		}
