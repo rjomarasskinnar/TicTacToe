@@ -17,7 +17,7 @@ public class HumanPlayer extends Player {
                 boolean validInput = false;
                 while (!validInput) {
                         Scanner in = new Scanner(System.in);
-                        System.out.println("Player " + token + " please choose a box (1-9): ");
+                        System.out.print("Player " + token + " please choose a box (1-9): ");
                         int boxno = in.nextInt();
                         if (boxno >=1 && boxno <= 9)
                         {
@@ -32,6 +32,10 @@ public class HumanPlayer extends Player {
         public int getWins() {
                 return numberOfWins;
         }
+	
+	public void winner() {
+		numberOfWins++;
+	}
 
         public char getToken() {
                 return token;

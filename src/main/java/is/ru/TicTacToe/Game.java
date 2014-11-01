@@ -4,6 +4,7 @@ import java.util.*;
 
 public class Game {
 	private int numberOfGames;
+	private int turns;
 	private Board board;
 	private HumanPlayer p1;
 	private HumanPlayer p2;
@@ -12,6 +13,7 @@ public class Game {
 	public Game() {
 		board = new Board();
 		numberOfGames = 0;
+		turns = 0;
 		p1 = new HumanPlayer('X');
 		p2 = new HumanPlayer('O');
 		a1 = new AIPlayer('X');
@@ -20,6 +22,8 @@ public class Game {
 	public void newRound() {
 		board = new Board();
 		numberOfGames++;
+		play();
+		endRound();
 	}
 
 	public void endRound() {
@@ -33,7 +37,9 @@ public class Game {
 				newRound();
 			}
 			else if(tmp == 'N' || tmp == 'n'){
-				System.out.print("Game is over. Congratulations player");
+		HumanPlayer p1 = new HumanPlayer('X');
+		HumanPlayer p2 = new HumanPlayer('O');
+				System.out.print("Game is over. Congratulations Player ");
 				if(p1.getWins() > p2.getWins()){
 					System.out.print(p1.getToken());
 					System.out.println(" you are the winner!!!");
@@ -50,11 +56,11 @@ public class Game {
 	}
 
 	private void printScore() {
-		System.out.print("Score: PlayerX ");
+		System.out.print("Score: Player X ");
 		System.out.print(p1.getWins());
 		System.out.print(" - ");
-		System.out.print("PlayerO ");
-		System.out.println(p1.getWins());
+		System.out.print("Player O ");
+		System.out.println(p2.getWins());
 	}
 
 	public HumanPlayer startingPlayer() {
@@ -64,6 +70,14 @@ public class Game {
 		else {
 			return p2;
 		}
+	}
+	public HumanPlayer whoPlays() {
+		if(turns % 2 == 0){
+                        return p1;
+                }
+                else {
+                        return p2;
+                }
 	}
 
 	public boolean isOver() {
@@ -170,5 +184,41 @@ public class Game {
 	}
 	public Board getBoard(){
 		return board;
+	}
+	
+	public void play() {
+		//board.printBoard();
+		startingPlayer().takeTurn(board);
+		board.printBoard();
+		turns++;
+		while (!isOver()) {
+			whoPlays().takeTurn(board);
+			board.printBoard();
+			turns++;
+		}
+		if (checkForWinner('X')) {
+			p1.winner();
+		} 
+		else if (checkForWinner('O')) {
+			p2.winner();
+		}
+		else {
+			System.out.println("It's a tie!");
+		}
+	}
+
+	public void instructions() {
+		System.out.printf(" %s %s %s %s %s\n", '1', "|", '2', "|", '3');
+                System.out.printf("-----------\n");
+                System.out.printf(" %s %s %s %s %s\n", '4', "|", '5', "|", '6');
+                System.out.printf("-----------\n");
+                System.out.printf(" %s %s %s %s %s\n", '7', "|", '8', "|", '9');
+	}
+	
+	public static void main(String[] args) {
+		Game game = new Game();
+		game.instructions();	
+		game.play();
+		game.endRound();
 	}
 }
