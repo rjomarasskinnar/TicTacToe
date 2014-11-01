@@ -8,6 +8,7 @@ public class Game {
 	private Board board;
 	private HumanPlayer p1;
 	private HumanPlayer p2;
+	private AIPlayer a1;
 
 	public Game() {
 		board = new Board();
@@ -15,6 +16,7 @@ public class Game {
 		turns = 0;
 		p1 = new HumanPlayer('X');
 		p2 = new HumanPlayer('O');
+		a1 = new AIPlayer('X');
 	}
 
 	public void newRound() {
@@ -92,7 +94,12 @@ public class Game {
 			return false;
 		}
 	}
-	
+	public static void main(String[] args) {
+		Game game = new Game();
+	}
+	public boolean isWinner(char token) {
+		return true;
+	}
 	public boolean checkForWinner(char token) {
 		boolean topLine = false;
 		boolean middleLineHorizontal = false;
@@ -160,14 +167,21 @@ public class Game {
 			rightDiagonal || 
 			leftDiagonal);
 	}
-
 	public void setNumberOfGames(int x){
 		if(x < 0){
 			 throw new IllegalArgumentException("Please Insert a number higher than 0");
 		}
 		numberOfGames = x;
 	}
-
+	public Player getHumanPlayer1() {
+		return p1;
+	}
+	public Player getHumanPlayer2() {
+		return p2;
+	}
+	public Player getAIPlayer() {
+		return a1;
+	}
 	public Board getBoard(){
 		return board;
 	}

@@ -1,7 +1,7 @@
 package is.ru.TicTacToe;
 import java.util.Scanner;
 
-public class HumanPlayer {
+public class HumanPlayer extends Player {
         private int numberOfWins;
         private char token;
 
