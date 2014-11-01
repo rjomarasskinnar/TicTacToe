@@ -21,7 +21,7 @@ public class Game {
 	}
 
 	public void endRound() {
-		if(checkIfOver()){
+		if(isOver()){
 			printScore();
 
 			System.out.println("Do you wish to continue? (Y/N)");
@@ -32,8 +32,17 @@ public class Game {
 			}
 			else if(tmp == 'N' || tmp == 'n'){
 				System.out.print("Game is over. Congratulations player");
-				System.out.print(checkForWinner().getToken());
-				System.out.println(" you are the winner!!!");
+				if(p1.getWins() > p2.getWins()){
+					System.out.print(p1.getToken());
+					System.out.println(" you are the winner!!!");
+				}
+				else if (p2.getWins() > p1.getWins()){
+					System.out.print(p2.getToken());
+					System.out.println(" you are the winner!!!");
+				}
+				else{
+					System.out.println("Game is over. It´s a tie");
+				}
 			}
 		}
 	}
@@ -55,15 +64,14 @@ public class Game {
 		}
 	}
 
-	public boolean checkIfOver() {
-		
-		return false;
+	public boolean isOver() {
+		return true;
 	}
 	public static void main(String[] args) {
 		Game game = new Game();
 	}
 	
-	public HumanPlayer checkForWinner() {
+	public boolean checkForWinner(char token) {
 		boolean topLine = false;
 		boolean middleLineHorizontal = false;
 		boolean bottomLine = false;
@@ -136,5 +144,9 @@ public class Game {
 			 throw new IllegalArgumentException("Please Insert a number higher than 0");
 		}
 		numberOfGames = x;
+	}
+
+	public Board getBoard(){
+		return board;
 	}
 }
