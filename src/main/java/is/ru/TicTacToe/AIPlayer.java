@@ -31,8 +31,6 @@ public class AIPlayer extends Player{
 		else {
 			board.updateBoard(preferredMove(board), a);
 		}
-
-		//board.updateBoard(bestMove(), a);
 	}
 
 	private int winPossible(char checkToken, Board board) {
@@ -101,6 +99,7 @@ public class AIPlayer extends Player{
 		}
 	}
 	private int preferredMove(Board board) {
+		
 		return 0;
 	}
 }
