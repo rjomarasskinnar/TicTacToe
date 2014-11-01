@@ -22,6 +22,7 @@ public class Board {
 		System.out.printf(" %s %s %s %s %s\n", board[6], "|", board[7], "|", board[8]);
 	}
 
+<<<<<<< HEAD
 	public void updateBoard(int x, char token) {
 		if (board[x] != ' ') {
 			throw new IllegalArgumentException("Cannot put " + token + " there, the cell has already been ticked");
@@ -29,6 +30,17 @@ public class Board {
 		else {
 			board[x] = token;
 			stringBoard[x].set(String.valueOf(token));
+=======
+	public boolean updateBoard(int x, char token) {
+		if (board[x] != ' ') {
+			//throw new IllegalArgumentException("Cannot put " + token + " there, the cell has already been ticked");
+			System.out.println("Cannot put " + token + " there, the cell has already been ticked");
+			return false;
+		}
+		else {
+			board[x] = token;
+			return true;
+>>>>>>> master
 		}
 	}
 
