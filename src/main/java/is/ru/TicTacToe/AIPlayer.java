@@ -1,6 +1,6 @@
 package is.ru.TicTacToe;
 
-public class AIPlayer {
+public class AIPlayer extends Player{
 
 	private int numberOfWins;
 	private char token;
@@ -23,19 +23,19 @@ public class AIPlayer {
 
 	public void takeTurn(Board board, AIPlayer a) {
 		if (lossPrevention() != -1) { //loss prevention
-			board.updateBoard(lossPrevention(), a);
+			board.updateBoard(lossPrevention(board), a);
 		} 
 		else if (winPossible(token) != -1) { // if win is possible in next move
-			board.updateBoard(winPossible(token), a);
+			board.updateBoard(winPossible(token, board), a);
 		}
 		else {
-			board.updateBoard(preferredMove(), a);
+			board.updateBoard(preferredMove(board), a);
 		}
 
 		//board.updateBoard(bestMove(), a);
 	}
 
-	private int winPossible(char checkToken) {
+	private int winPossible(char checkToken, Board board) {
 		//8 ways to win
 		/*
 			1. 0-1-2
@@ -47,10 +47,47 @@ public class AIPlayer {
 			7. 0-4-8
 			8. 2-4-6
 		*/
-
+		if (checkThrees(0, 1, 2, board, checkToken) != -1) {
+			return checkThrees(0, 1, 2, board, checkToken);
+		}
+		else if (checkThrees(3, 4, 5, board, checkToken) != -1) {
+			return checkThrees(3, 4, 5, board, checkToken);
+		}
+		else if (checkThrees(6, 7, 8, board, checkToken) != -1) {
+			return checkThrees(6, 7, 8, board, checkToken);
+		}
+		else if (checkThrees(0, 3, 6, board, checkToken) != -1) {
+			return checkThrees(0, 3, 6, board, checkToken);
+		}
+		else if (checkThrees(1, 4, 7, board, checkToken) != -1) {
+			return checkThrees(1, 4, 7, board, checkToken);
+		}
+		else if (checkThrees(2, 5, 8, board, checkToken) != -1) {
+			return checkThrees(2, 5, 8, board, checkToken);
+		}
+		else if (checkThrees(0, 4, 8, board, checkToken) != -1) {
+			return checkThrees(0, 4, 8, board, checkToken);
+		}
+		else if (checkThrees(2, 4, 6, board, checkToken) != -1) {
+			return checkThrees(2, 4, 6, board, checkToken);
+		}
 		return -1;
 	}	
-	public int lossPrevention() {
+	private int checkThrees(int a, int b, int c, Board board, char checkToken) {
+		if (board.getBoardCells(a) == checkToken && board.getBoardCells(b) == checkToken) {
+			return c;
+		}
+		else if (board.getBoardCells(a) == checkToken && board.getBoardCells(c) == checkToken) {
+			return b;
+		}
+		else if (board.getBoardCells(b) == checkToken && board.getBoardCells(c) == checkToken) {
+			return a;
+		}
+		else {
+			return -1;
+		}
+	}
+	private int lossPrevention(Board board) {
 		//check if loss prevention is possible
 		//if other player can't win next turn,
 		//take turn
@@ -63,7 +100,7 @@ public class AIPlayer {
 			return -1;
 		}
 	}
-	public int preferredMove() {
+	private int preferredMove(Board board) {
 		return 0;
 	}
 }
