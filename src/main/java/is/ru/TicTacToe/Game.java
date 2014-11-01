@@ -81,52 +81,52 @@ public class Game {
 		boolean rightDiagonal = false;
 		boolean leftDiagonal = false;
 
-		if(board[0] == token && 
-		   board[1] == token && 
-		   board[2] == token) {
-			firstLine = true
+		if(board.getBoardCells(0) == token && 
+		   board.getBoardCells(1) == token && 
+		   board.getBoardCells(2) == token) {
+			topLine = true;
 		}
 
-		if(board[3] == token && 
-		   board[4] == token && 
-		   board[5] == token) {
-			middleLineHorizontal = true
+		if(board.getBoardCells(3) == token && 
+		   board.getBoardCells(4) == token && 
+		   board.getBoardCells(5) == token) {
+			middleLineHorizontal = true;
 		}
 
-		if(board[6] == token && 
-		   board[7] == token && 
-		   board[8] == token) {
-			bottomLine = true
+		if(board.getBoardCells(6) == token && 
+		   board.getBoardCells(7) == token && 
+		   board.getBoardCells(8) == token) {
+			bottomLine = true;
 		}
 
-		if(board[0] == token && 
-		   board[3] == token && 
-		   board[6] == token) {
-			leftLine = true
+		if(board.getBoardCells(0) == token && 
+		   board.getBoardCells(3) == token && 
+		   board.getBoardCells(6) == token) {
+			leftLine = true;
 		}
 
-		if(board[1] == token && 
-		   board[4] == token && 
-		   board[7] == token) {
-			middleLineVertical = true
+		if(board.getBoardCells(1) == token && 
+		   board.getBoardCells(4) == token && 
+		   board.getBoardCells(7) == token) {
+			middleLineVertical = true;
 		}
 
-		if(board[2] == token && 
-		   board[5] == token && 
-		   board[8] == token) {
-			rightLine = true
+		if(board.getBoardCells(2) == token && 
+		   board.getBoardCells(5) == token && 
+		   board.getBoardCells(8) == token) {
+			rightLine = true;
 		}
 
-		if(board[0] == token && 
-		   board[4] == token && 
-		   board[8] == token) {
-			rightDiagonal = true
+		if(board.getBoardCells(0) == token && 
+		   board.getBoardCells(4) == token && 
+		   board.getBoardCells(8) == token) {
+			rightDiagonal = true;
 		}
 
-		if(board[2] == token && 
-		   board[4] == token && 
-		   board[6] == token) {
-			leftDiagonal = true
+		if(board.getBoardCells(2) == token && 
+		   board.getBoardCells(4) == token && 
+		   board.getBoardCells(6) == token) {
+			leftDiagonal = true;
 		}
 
 		return (topLine || 
