@@ -93,6 +93,7 @@ public class Game {
 		else {
 			return false;
 		}
+	}
 	public boolean checkForWinner(char token) {
 		boolean topLine = false;
 		boolean middleLineHorizontal = false;
@@ -178,7 +179,6 @@ public class Game {
 	public Board getBoard(){
 		return board;
 	}
-	
 	public void play() {
 		//board.printBoard();
 		startingPlayer().takeTurn(board);
