@@ -8,6 +8,7 @@ public class Board {
 				board[i] = ' ';
 		}// initializes Board cells with whitespace in them
 	}
+
 	public void printBoard() {
 		System.out.printf(" %s %s %s %s %s\n", board[0], "|", board[1], "|", board[2]);
 		System.out.printf("-----------\n");
@@ -15,14 +16,16 @@ public class Board {
 		System.out.printf("-----------\n");
 		System.out.printf(" %s %s %s %s %s\n", board[6], "|", board[7], "|", board[8]);
 	}
-	public void updateBoard(int x, HumanPlayer p) {
+
+	public void updateBoard(int x, char token) {
 		if (board[x] != ' ') {
-			throw new IllegalArgumentException("Cannot put " + p.getToken() + " there, the cell has already been ticked");
+			throw new IllegalArgumentException("Cannot put " + token + " there, the cell has already been ticked");
 		}
 		else {
-			board[x] = p.getToken();
+			board[x] = token;
 		}
 	}
+
 	public boolean boardIsFull(){
 		for(int i = 0; i < 9; i++){
 			if(board[i] == ' '){
@@ -31,6 +34,7 @@ public class Board {
 		}
 		return true;
 	}
+
 	// for AI
 	public char getBoardCells(int cell) {
 		return board[cell];
