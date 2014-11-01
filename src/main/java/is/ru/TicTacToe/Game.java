@@ -93,6 +93,8 @@ public class Game {
 		else {
 			return false;
 		}
+	}
+
 	public boolean checkForWinner(char token) {
 		boolean topLine = false;
 		boolean middleLineHorizontal = false;
@@ -160,6 +162,7 @@ public class Game {
 			rightDiagonal || 
 			leftDiagonal);
 	}
+
 	public void setNumberOfGames(int x){
 		if(x < 0){
 			 throw new IllegalArgumentException("Please Insert a number higher than 0");
