@@ -197,7 +197,7 @@ public class Game {
 	}
 
 	public void play(char players) {
-		string currentPlayer = startingPlayer(players);
+		String currentPlayer = startingPlayer(players);
 		playTurn(currentPlayer);
 		board.printBoard();
 		turns++;
