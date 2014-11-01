@@ -182,20 +182,10 @@ public class Game {
 	public Board getBoard(){
 		return board;
 	}
-<<<<<<< HEAD
 	
 	public void play(char players) {
 		if (players = '2') {
 			startingPlayer(players).takeTurn(board);
-=======
-	public void play() {
-		//board.printBoard();
-		startingPlayer().takeTurn(board);
-		board.printBoard();
-		turns++;
-		while (!isOver()) {
-			whoPlays().takeTurn(board);
->>>>>>> 0a734eaa9ac30a4476d4c2639aee6c45d5826d0f
 			board.printBoard();
 			turns++;
 			while (!isOver()) {
