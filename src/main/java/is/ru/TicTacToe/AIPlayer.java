@@ -1,7 +1,7 @@
 package is.ru.TicTacToe;
 import java.util.Random;
 
-public class AIPlayer extends Player{
+public class AIPlayer {
 
 	private int numberOfWins;
 	private char token;
