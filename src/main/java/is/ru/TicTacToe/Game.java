@@ -65,7 +65,15 @@ public class Game {
 	}
 
 	public boolean isOver() {
-		return true;
+		if (checkForWinner()) {
+			return true;	
+		}
+		else if (board.boardIsFull()) {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 	public static void main(String[] args) {
 		Game game = new Game();
