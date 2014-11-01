@@ -23,10 +23,10 @@ public class AIPlayer extends Player{
 	}
 
 	public void takeTurn(Board board) {
-		if (winPossible(token) != -1) { // if win is possible in next move
+		if (winPossible(token, board) != -1) { // if win is possible in next move
 			board.updateBoard(winPossible(token, board), token);
 		}
-		else if (lossPrevention() != -1) { //loss prevention
+		else if (lossPrevention(board) != -1) { //loss prevention
 			board.updateBoard(lossPrevention(board), token);
 		} 
 		else {
@@ -106,7 +106,7 @@ public class AIPlayer extends Player{
 		//if other player can't win next turn,
 		//take turn
 		char enemyToken = getEnemyToken();
-		int enemyWin = winPossible(enemyToken);
+		int enemyWin = winPossible(enemyToken, board);
 		if (enemyWin != -1) {
 			return enemyWin; 
 		}
@@ -131,15 +131,13 @@ public class AIPlayer extends Player{
 			else if (board.getBoardCells(4) == enemyToken) { // p1 put in center, put in corner
 				return randomCorner();
 			}
-			else {
+		}
+		else {
 				do {
 					int rand = r.nextInt(8);
 				} while (board.getBoardCells(rand) != ' ');
-				return rand;
-			}
-
+			return rand;
 		}
-		return 0;
 	}
 	private boolean cellEmpty(Board board, int cell) {
 		if (board.getBoardCells(cell) == ' ') {
@@ -159,6 +157,7 @@ public class AIPlayer extends Player{
 		return count;
 	}
 	private int randomCorner() {
+		Random r = new Random();
 		int rand = r.nextInt(3);
 			if (rand == 0) {
 				return 0;
