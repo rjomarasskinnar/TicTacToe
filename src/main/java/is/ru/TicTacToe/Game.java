@@ -7,21 +7,21 @@ import javafx.beans.property.SimpleObjectProperty;
 
 public class Game {
 	private int numberOfGames;
+	private int turns;
 	private Board board;
 	private HumanPlayer p1;
 	private HumanPlayer p2;
 	private AIPlayer a1;	
 	public ObjectProperty<HumanPlayer> whoseTurn = new SimpleObjectProperty<HumanPlayer>();
-	//private int turns;
 
 	public Game() {
 		board = new Board();
 		numberOfGames = 0;
+		turns = 0;
 		p1 = new HumanPlayer('X');
 		p2 = new HumanPlayer('O');
 		a1 = new AIPlayer('X');	
 		whoseTurn.set(startingPlayer());
-		//turns = 0;
 	}
 
 	public void newRound() {
