@@ -1,4 +1,5 @@
 package is.ru.TicTacToe;
+import java.util.Random;
 
 public class AIPlayer extends Player{
 
@@ -22,12 +23,12 @@ public class AIPlayer extends Player{
 	}
 
 	public void takeTurn(Board board, AIPlayer a) {
-		if (lossPrevention() != -1) { //loss prevention
-			board.updateBoard(lossPrevention(board), a);
-		} 
-		else if (winPossible(token) != -1) { // if win is possible in next move
+		if (winPossible(token) != -1) { // if win is possible in next move
 			board.updateBoard(winPossible(token, board), a);
 		}
+		else if (lossPrevention() != -1) { //loss prevention
+			board.updateBoard(lossPrevention(board), a);
+		} 
 		else {
 			board.updateBoard(preferredMove(board), a);
 		}
@@ -99,7 +100,56 @@ public class AIPlayer extends Player{
 		}
 	}
 	private int preferredMove(Board board) {
-		
+		char enemyToken = getEnemyToken();
+		Random r = new Random();
+
+		if (evaluate(board) == 0) { //first = put in corners
+			return randomCorner();
+		} 
+		else if (evaluate(board) == 1) { // second = put in center if p1 put in corner
+			if (getBoardCells(0) == enemyToken ||
+				getBoardCells(2) == enemyToken ||
+				getBoardCells(6) == enemyToken ||
+				getBoardCells(8) == enemyToken ||) {
+				return 4;
+			}
+			else if (getBoardCells(4) == enemyToken) { // p1 put in center, put in corner
+				return randomCorner();
+			}
+			
+		}
 		return 0;
+	}
+	private boolean cellEmpty(Board board, int cell) {
+		if (board.getBoardCells(cell) == ' ') {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	private int evaluate(Board board) {
+		int count = 0;
+		for (int i = 0; i < 9; i++) {
+			if (board.getBoardCells(i) != ' ') {
+				count++;
+			}
+		}
+		return count;
+	}
+	private int randomCorner() {
+		int rand = r.nextInt(3);
+			if (rand == 0) {
+				return 0;
+			}
+			else if (rand == 1) {
+				return 2;
+			}
+			else if (rand == 2) {
+				return 6;
+			}
+			else if (rand == 3) {
+				return 8;
+			}
 	}
 }
