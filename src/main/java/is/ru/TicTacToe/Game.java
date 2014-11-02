@@ -208,13 +208,11 @@ public class Game {
 	}
 
 	public void play(char players) {
-		String currentPlayer = startingPlayer(players);
-		playTurn(currentPlayer);
+		playTurn(startingPlayer(players));
 		board.printBoard();
 		turns++;
 		while (!isOver()) {
-			currentPlayer = whoPlays(players);
-			playTurn(currentPlayer);
+			playTurn(whoPlays(players));
 			board.printBoard();
 			turns++;
 		}
