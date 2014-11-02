@@ -78,8 +78,12 @@ public class Game {
 			return "p1";
 		}
 		else {
-			if (players == '2') { return "p2"; }
-            		else { return "a1"; }
+			if (players == '2') { 
+				return "p2"; 
+			}
+    		else { 
+    			return "a1"; 
+    		}
 		}
 	}
 
@@ -88,8 +92,12 @@ public class Game {
             return "p1";
     	}
     	else {
-    		if (players == '2') { return "p2"; }
-        	else { return "a1"; }
+    		if (players == '2') {
+    		 	return "p2"; 
+    		}
+        	else { 
+        		return "a1"; 
+        	}
     	}
     }
 	public boolean isOver() {
@@ -230,8 +238,11 @@ public class Game {
 		else if (player == "p2") {
 			p2.takeTurn(board);
 		}
-		else {
+		else if (player == "a1") {
 			a1.takeTurn(board);
+		}
+		else {
+			throw new IllegalArgumentException("Player variable is wrong, please check your inputs.")
 		}
 	}
 
@@ -245,9 +256,19 @@ public class Game {
 
 	public static void main(String[] args) {
 		Game game = new Game();
-		System.out.printf("1 player or 2 players? (1/2) ");
-                Scanner s = new Scanner(System.in);
-                        char tmp = s.next().charAt(0);
+		boolean validPlayers = false;
+		while (!validPlayers) {
+			System.out.printf("1 player or 2 players? (1/2) ");
+	        Scanner s = new Scanner(System.in);
+	        char tmp = s.next().charAt(0);
+	        if (tmp == 1 || tmp == 2) {
+	        	validPlayers = true;
+	        }
+	        else {
+	        	throw new IllegalArgumentException("Please input 1 or 2 players");
+	        }
+	    }
+
 		game.instructions();
 		game.play(tmp);
 		game.endRound(tmp);
