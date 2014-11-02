@@ -7,7 +7,7 @@ public class HumanPlayer extends Player {
 
         public HumanPlayer(char token) {
                 if(token != 'X' && token != 'O'){
-                        throw new IllegalArgumentException("Please insert either X or O!");
+                        throw new IllegalArgumentException("Please insert either X or O.");
                 }
                 this.numberOfWins = 0;
                 this.token = token;
