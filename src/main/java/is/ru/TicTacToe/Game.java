@@ -175,14 +175,14 @@ public class Game {
 			leftDiagonal = true;
 		}
 
-		return (topLine || 
+		return topLine || 
 			middleLineHorizontal || 
 			bottomLine || 
 			leftLine || 
 			middleLineVertical || 
 			rightLine || 
 			rightDiagonal || 
-			leftDiagonal);
+			leftDiagonal;
 	}
 	
 	public void setNumberOfGames(int x){
