@@ -23,6 +23,7 @@ public class Game {
 		board = new Board();
 		turns = 0;
 		numberOfGames++;
+		instructions();
 		play(players);
 		endRound(players);
 	}
@@ -277,7 +278,6 @@ public class Game {
 	        	}
 	    	}
 
-		game.instructions();
 		game.newRound(players);
 		game.endRound(players);
 	}

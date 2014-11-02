@@ -149,7 +149,7 @@ public class AIPlayer {
 			else if (board.getBoardCells(4) == enemyToken) { // p1 put in center, put in corner
 				return randomCorner();
 			}
-		}
+		} /*
 		else if (evaluate(board) == 2 || evaluate(board) == 4) { // 3rd or 4th
 			if (board.getBoardCells(1) != enemyToken) {
 				return 1;
@@ -171,6 +171,7 @@ public class AIPlayer {
 				return rand;
 			}
 		}
+		*/
 		else {
 			int rand = 0;
 			do {

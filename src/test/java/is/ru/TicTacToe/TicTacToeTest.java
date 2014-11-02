@@ -81,7 +81,7 @@ public class TicTacToeTest {
                 testGame.getBoard().updateBoard(6, 'X');
                 assertEquals(true, testGame.checkForWinner('X'));
         }
-	
+
 	@Test
 	public void testCheckForWinnerNoWin(){
                 Game testGame = new Game();
@@ -129,6 +129,7 @@ public class TicTacToeTest {
     	testBoard.updateBoard(0, 'O');
     	assertEquals(4, ai.preferredMove(testBoard));
     }
+/*
     @Test
     public void testAIPreferredMoveOnThirdTurn() {
     	Board testBoard = new Board();
@@ -137,7 +138,7 @@ public class TicTacToeTest {
     	testBoard.updateBoard(4, 'X');
     	assertEquals(1, ai.preferredMove(testBoard));
     }
-
+*/
 	@Test
 	public void testIsOverWinner() {
 		Game testGame = new Game();
