@@ -216,8 +216,6 @@ public class Game {
 		else {
 			turns++; //otherwise, increase the turn count so p2 or a1 takes the next turn
 		}
-		//turns++;
-		return count;
 		while (!isOver()) {
 			playTurn(whoPlays(players));
 			board.printBoard();
