@@ -123,12 +123,6 @@ public class TicTacToeTest {
     	assertEquals(-1, ai.lossPrevention(testBoard));
     }
     @Test
-    public void testAIPreferredMoveOnEmptyBoard() {
-    	Board testBoard = new Board();
-    	AIPlayer ai = new AIPlayer('O');
-    	assertEquals((0 || 2 || 6 || 8), ai.preferredMove(testBoard));
-    }
-    @Test
     public void testAIPreferredMoveOnSecondTurn() {
     	Board testBoard = new Board();
     	AIPlayer ai = new AIPlayer('X');
