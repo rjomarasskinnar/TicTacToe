@@ -12,6 +12,9 @@ apply plugin: 'pmd'
 apply plugin: 'java'
 apply plugin: 'application'
 apply plugin: 'net.saliman.cobertura'
+
+mainClassName = "is.ru.TicTacToe.Game"
+
 jar {
 	manifest {
 		attributes 'Main-Class': 'is.ru.TicTacToe.Game'
@@ -57,3 +60,9 @@ dependencies {
     // 'test.useTestNG()' to your build script.
     testCompile 'junit:junit:4.11'
 }
+
+task deploy(type: Exec) {
+	executable "sh"
+	args "bin/build"
+}
+	
