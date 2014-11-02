@@ -2,11 +2,6 @@ package is.ru.TicTacToe;
 
 import java.util.*;
 
-/*
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleObjectProperty;
-*/
-
 public class Game {
 	private int numberOfGames;
 	private int turns;
@@ -14,10 +9,6 @@ public class Game {
 	private HumanPlayer p1;
 	private HumanPlayer p2;
 	private AIPlayer a1;
-	/*
-	public ObjectProperty<HumanPlayer> playerTurn = new SimpleObjectProperty<HumanPlayer>();
-	public ObjectProperty<AIPlayer> aiTurn = new SimpleObjectProperty<AIPlayer>();
-	*/
 
 	public Game() {
 		board = new Board();
@@ -257,22 +248,8 @@ public class Game {
 		System.out.printf("1 player or 2 players? (1/2) ");
                 Scanner s = new Scanner(System.in);
                         char tmp = s.next().charAt(0);
-        //whoseTurn.set(startingPlayer(tmp));
 		game.instructions();
 		game.play(tmp);
 		game.endRound(tmp);
 	}
-	/*
-	public void takeTurn(int cell) {
-		if (cell >= 0 && cell <= 8) {
-            	board.updateBoard(cell , whoseTurn.get().getToken());
-            	if(whoseTurn.get() == p1) {
-            		whoseTurn.set(p2);
-            	}
-            	else {
-            		whoseTurn.set(p1);
-            	}
-    	}
-	}
-	*/
 }

@@ -1,16 +1,11 @@
 package is.ru.TicTacToe;
 
-import javafx.beans.property.SimpleStringProperty;
-
 public class Board {
 	private char[] board = new char[9];
 	
-	//public SimpleStringProperty[] stringBoard = new SimpleStringProperty[9];
-
 	public Board() {
 		for(int i = 0; i < 9; i++){
 				board[i] = ' ';
-				//stringBoard[i] = new SimpleStringProperty("    ");
 		}// initializes Board cells with whitespace in them
 	}
 
@@ -29,7 +24,6 @@ public class Board {
 		}
 		else {
 			board[x] = token;
-			//stringBoard[x].set(String.valueOf(token));	
 			return true;
 		}
 	}
@@ -43,7 +37,6 @@ public class Board {
 		return true;
 	}
 
-	// for AI
 	public char getBoardCells(int cell) {
 		return board[cell];
 	}
