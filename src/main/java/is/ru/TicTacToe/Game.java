@@ -210,7 +210,14 @@ public class Game {
 	public void play(char players) {
 		playTurn(startingPlayer(players));
 		board.printBoard();
-		turns++;
+		if (startingPlayer(players) == "p2" || startingPlayer(players) == "a1") { // temporary fix
+			turns = turns; //if starting player is p2 or a1, don't increase turns so p1 takes next turn
+		}
+		else {
+			turns++; //otherwise, increase the turn count so p2 or a1 takes the next turn
+		}
+		//turns++;
+		return count;
 		while (!isOver()) {
 			playTurn(whoPlays(players));
 			board.printBoard();
@@ -273,7 +280,7 @@ public class Game {
 	    	}
 
 		game.instructions();
-		game.play(players);
+		game.newRound(players);
 		game.endRound(players);
 	}
 }
