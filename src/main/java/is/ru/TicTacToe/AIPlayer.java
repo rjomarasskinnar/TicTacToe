@@ -32,17 +32,26 @@ public class AIPlayer {
 	}
 
 	public void takeTurn(Board board) {
-		if (winPossible(token, board) != -1) { // if win is possible in next move
-			board.updateBoard(winPossible(token, board), token);
-		}
-		else if (lossPrevention(board) != -1) { //loss prevention
-			board.updateBoard(lossPrevention(board), token);
-		} 
-		else {
-			board.updateBoard(preferredMove(board), token);
+		boolean validInput = false;
+		while (!validInput) {
+			if (winPossible(token, board) != -1) { // if win is possible in next move
+				if (board.updateBoard(winPossible(token, board), token)) {
+					validInput = true;
+				}
+			}
+			else if (lossPrevention(board) != -1) { //loss prevention
+				if(board.updateBoard(lossPrevention(board), token)) {
+					validInput = true;
+				}
+			}
+			else {
+				if(board.updateBoard(preferredMove(board), token)) {
+					validInput = true;
+				}
+			}
 		}
 	}
-	
+
 	public int winPossible(char checkToken, Board board) {
 		//8 ways to win
 		/*
@@ -150,6 +159,16 @@ public class AIPlayer {
 			}
 			else if (board.getBoardCells(5) != enemyToken) {
 				return 5;
+			}
+			else if (board.getBoardCells(7) != enemyToken) {
+				return 7;
+			}
+			else {
+				int rand = 0;
+				do {
+					rand = r.nextInt(8);
+				} while (board.getBoardCells(rand) != ' ');
+				return rand;
 			}
 		}
 		else {
