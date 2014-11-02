@@ -89,8 +89,60 @@ public class TicTacToeTest {
                 testGame.getBoard().updateBoard(4, 'X');
                 testGame.getBoard().updateBoard(5, 'X');
                 assertEquals(false, testGame.checkForWinner('X'));
-        }
-
+    }
+    @Test
+    public void testAIwinPossible1() {
+    	Board testBoard = new Board();
+    	AIPlayer ai = new AIPlayer('X');
+    	testBoard.getBoard().updateBoard(0, 'X');
+    	testBoard.getBoard().updateBoard(6, 'X');
+    	assertEquals(3, ai.winPossible('X', testBoard));
+    }
+    @Test
+    public void testAIwinPossible2() {
+    	Board testBoard = new Board();
+    	AIPlayer ai = new AIPlayer('O');
+    	testBoard.getBoard().updateBoard(5, 'O');
+    	testBoard.getBoard().updateBoard(6, 'O');
+    	assertEquals(-1, ai.winPossible('O', testBoard));
+    }
+    @Test
+    public void testAILossPrevention1() {
+    	Board testBoard = new Board();
+    	AIPlayer ai = new AIPlayer('X');
+    	testBoard.getBoard().updateBoard(1, 'O');
+    	testBoard.getBoard().updateBoard(7, 'O');
+    	assertEquals(4, ai.lossPrevention(testBoard));
+    }
+    @Test
+    public void testAILossPrevention2() {
+    	Board testBoard = new Board();
+    	AIPlayer ai = new AIPlayer('O');
+    	testBoard.getBoard().updateBoard(0, 'X');
+    	testBoard.getBoard().updateBoard(7, 'X');
+    	assertEquals(-1, ai.lossPrevention(testBoard));
+    }
+    @Test
+    public void testAIPreferredMoveOnEmptyBoard() {
+    	Board testBoard = new Board();
+    	AIPlayer ai = new AIPlayer('O');
+    	assertEquals((0 || 2 || 6 || 8), ai.preferredMove(testBoard));
+    }
+    @Test
+    public void testAIPreferredMoveOnSecondTurn() {
+    	Board testBoard = new Board();
+    	AIPlayer ai = new AIPlayer('X');
+    	testBoard.getBoard().updateBoard(0, 'O');
+    	assertEquals(4, ai.preferredMove(testBoard));
+    }
+    @Test
+    public void testAIPreferredMoveOnThirdTurn() {
+    	Board testBoard = new Board();
+    	AIPlayer ai = new AIPlayer('O');
+    	testBoard.getBoard().updateBoard(0, 'O');
+    	testBoard.getBoard().updateBoard(4, 'X');
+    	assertEquals(1, ai.preferredMove(testBoard));
+    }
 
 	/*@Test
 	public void testIsOverWinner() {

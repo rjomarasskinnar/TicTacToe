@@ -21,6 +21,15 @@ public class AIPlayer {
 			return 'X';
 		}
 	}
+	public void winner() {
+		numberOfWins++;
+	}
+	public int getWins() {
+		return numberOfWins;
+	}
+	public char getToken() {
+		return token;
+	}
 
 	public void takeTurn(Board board) {
 		if (winPossible(token, board) != -1) { // if win is possible in next move
@@ -33,16 +42,8 @@ public class AIPlayer {
 			board.updateBoard(preferredMove(board), token);
 		}
 	}
-	public void winner() {
-		numberOfWins++;
-	}
-	public int getWins() {
-		return numberOfWins;
-	}
-	public char getToken() {
-		return token;
-	}
-	private int winPossible(char checkToken, Board board) {
+	
+	public int winPossible(char checkToken, Board board) {
 		//8 ways to win
 		/*
 			1. 0-1-2
@@ -109,7 +110,7 @@ public class AIPlayer {
 			return -1;
 		}
 	}
-	private int lossPrevention(Board board) {
+	public int lossPrevention(Board board) {
 		//check if loss prevention is possible
 		//if other player can't win next turn,
 		//take turn
@@ -122,7 +123,7 @@ public class AIPlayer {
 			return -1;
 		}
 	}
-	private int preferredMove(Board board) {
+	public int preferredMove(Board board) {
 		char enemyToken = getEnemyToken();
 		Random r = new Random();
 
@@ -138,6 +139,17 @@ public class AIPlayer {
 			}
 			else if (board.getBoardCells(4) == enemyToken) { // p1 put in center, put in corner
 				return randomCorner();
+			}
+		}
+		else if (evaluate(board) == 2 || evaluate(board) == 4) { // 3rd or 4th
+			if (board.getBoardCells(1) != enemyToken) {
+				return 1;
+			}
+			else if (board.getBoardCells(3) != enemyToken) {
+				return 3;
+			}
+			else if (board.getBoardCells(5) != enemyToken) {
+				return 5;
 			}
 		}
 		else {
