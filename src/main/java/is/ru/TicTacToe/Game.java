@@ -37,7 +37,7 @@ public class Game {
 
 	public void endRound(char players) {
 		if(isOver()){
-			printScore();
+			printScore(players);
 
 			System.out.println("Do you wish to continue? (Y/N)");
 			Scanner s = new Scanner(System.in);
@@ -68,12 +68,18 @@ public class Game {
 		}
 	}
 
-	private void printScore() {
+	private void printScore(char players) {
 		System.out.print("Score: Player X ");
 		System.out.print(p1.getWins());
 		System.out.print(" - ");
 		System.out.print("Player O ");
-		System.out.println(p2.getWins());
+		if (players == '2') {
+			System.out.println(p2.getWins());
+		}
+		else {
+			System.out.println(a1.getWins());
+		}
+		
 	}
 
 	public String startingPlayer(char players) {
