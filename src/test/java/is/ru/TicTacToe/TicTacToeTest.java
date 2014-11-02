@@ -93,28 +93,27 @@ public class TicTacToeTest {
                 assertEquals(false, testGame.checkForWinner('X'));
         }
 
-
-	/*@Test
+	@Test
 	public void testIsOverWinner() {
 		Game testGame = new Game();
+		testGame.getBoard().updateBoard(0, 'X');
 		testGame.getBoard().updateBoard(1, 'X');
 		testGame.getBoard().updateBoard(2, 'X');
-		testGame.getBoard().updateBoard(3, 'X');
 		assertEquals(true, testGame.isOver());
 	}
 	
 	@Test
 	public void testIsOverFullBoard() {
 		Game testGame = new Game();
+		testGame.getBoard().updateBoard(0, 'O');
 		testGame.getBoard().updateBoard(1, 'X');
-                testGame.getBoard().updateBoard(2, 'X');
+                testGame.getBoard().updateBoard(2, 'O');
                 testGame.getBoard().updateBoard(3, 'X');
-		testGame.getBoard().updateBoard(4, 'X');
+		testGame.getBoard().updateBoard(4, 'O');
                 testGame.getBoard().updateBoard(5, 'X');
-                testGame.getBoard().updateBoard(6, 'X');
+                testGame.getBoard().updateBoard(6, 'O');
 		testGame.getBoard().updateBoard(7, 'X');
-                testGame.getBoard().updateBoard(8, 'X');
-                testGame.getBoard().updateBoard(9, 'X');
+                testGame.getBoard().updateBoard(8, 'O');
 		assertEquals(true, testGame.isOver());
 	}
 	
@@ -122,8 +121,21 @@ public class TicTacToeTest {
 	public void testIsOverNoWinnerNotFull() {
 		Game testGame = new Game();
 		testGame.getBoard().updateBoard(1, 'X');
-                testGame.getBoard().updateBoard(5, 'X');
+                testGame.getBoard().updateBoard(5, 'O');
                 testGame.getBoard().updateBoard(3, 'X');
 		assertEquals(false, testGame.isOver());
-	}*/
+	}
+	
+	@Test
+	public void testUpdateBoardEmptyBoard() {
+		Board board = new Board();
+		assertEquals(true, board.updateBoard(1, 'X'));
+	}
+	
+	@Test
+	public void testUpdateBoardSameBox() {
+		Board board = new Board();
+		board.updateBoard(1, 'X');
+		assertEquals(false, board.updateBoard(1, 'O'));
+	}
 }
