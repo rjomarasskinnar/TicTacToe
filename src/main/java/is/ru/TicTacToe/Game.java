@@ -263,7 +263,7 @@ public class Game {
 			System.out.printf("1 player or 2 players? (1/2) ");
 	     	   	Scanner s = new Scanner(System.in);
 	        	char tmp = s.next().charAt(0);
-	        	if (tmp == 1 || tmp == 2) {
+	        	if (tmp == '1' || tmp == '2') {
 	        		validPlayers = true;
 				players = tmp;
 	        	}
