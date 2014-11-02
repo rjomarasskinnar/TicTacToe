@@ -40,16 +40,14 @@ public class TicTacToeTest {
 	public void testStarterPlayerOdd(){
 		Game testgame = new Game();
 		testgame.setNumberOfGames(7);//odd number = should return player 2
-		HumanPlayer p = testgame.startingPlayer();
-		assertEquals('O', p.getToken());
+		assertEquals("p2", testgame.startingPlayer('2'));
 	}
 
 	@Test
         public void testStarterPlayerEven(){
                 Game testgame = new Game();
                 testgame.setNumberOfGames(8); //Even number = should return player 1
-		HumanPlayer p = testgame.startingPlayer();
-                assertEquals('X', p.getToken());
+                assertEquals("p1", testgame.startingPlayer('2'));
 	}
 
 	@Test(expected = IllegalArgumentException.class)
