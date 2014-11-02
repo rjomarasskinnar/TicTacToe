@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.TicTacToeController">
+   <children>
+      <VBox>
+         <children>
+            <HBox>
+               <children>
+                  <Label text="Whose turn is it:  " />
+                  <Label fx:id="lblWhoseTurn" />
+               </children>
+            </HBox>
+            <GridPane layoutY="23.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
+              <columnConstraints>
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="27.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="27.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="27.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label fx:id="lbl00" onMouseClicked="#lbl00Clicked" text="    ">
+                     <font>
+                        <Font name="System Bold" size="150.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbl01" onMouseClicked="#lbl01Clicked" text="    " GridPane.columnIndex="1">
+                     <font>
+                        <Font name="System Bold" size="150.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbl02" onMouseClicked="#lbl02Clicked" text="    " GridPane.columnIndex="2">
+                     <font>
+                        <Font name="System Bold" size="150.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbl10" onMouseClicked="#lbl10Clicked" text="    " GridPane.rowIndex="1">
+                     <font>
+                        <Font name="System Bold" size="150.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbl20" onMouseClicked="#lbl20Clicked" text="    " GridPane.rowIndex="2">
+                     <font>
+                        <Font name="System Bold" size="150.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbl11" onMouseClicked="#lbl11Clicked" text="    " GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="System Bold" size="150.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbl22" onMouseClicked="#lbl22Clicked" text="    " GridPane.columnIndex="2" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="System Bold" size="150.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbl12" onMouseClicked="#lbl12Clicked" text="    " GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="System Bold" size="150.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbl21" onMouseClicked="#lbl21Clicked" text="    " GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="System Bold" size="150.0" />
+                     </font>
+                  </Label>
+               </children>
+            </GridPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
+
