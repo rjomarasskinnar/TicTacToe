@@ -21,6 +21,7 @@ public class Game {
 
 	public void newRound(char players) {
 		board = new Board();
+		turns = 0;
 		numberOfGames++;
 		play(players);
 		endRound(players);
@@ -70,7 +71,7 @@ public class Game {
 		else {
 			System.out.println(a1.getWins());
 		}
-		
+
 	}
 
 	public String startingPlayer(char players) {
@@ -242,7 +243,7 @@ public class Game {
 			a1.takeTurn(board);
 		}
 		else {
-			throw new IllegalArgumentException("Player variable is wrong, please check your inputs.")
+			throw new IllegalArgumentException("Player variable is wrong, please check your inputs.");
 		}
 	}
 
@@ -256,21 +257,23 @@ public class Game {
 
 	public static void main(String[] args) {
 		Game game = new Game();
+		char players = '2';
 		boolean validPlayers = false;
 		while (!validPlayers) {
 			System.out.printf("1 player or 2 players? (1/2) ");
-	        Scanner s = new Scanner(System.in);
-	        char tmp = s.next().charAt(0);
-	        if (tmp == 1 || tmp == 2) {
-	        	validPlayers = true;
-	        }
-	        else {
-	        	throw new IllegalArgumentException("Please input 1 or 2 players");
-	        }
-	    }
+	     	   	Scanner s = new Scanner(System.in);
+	        	char tmp = s.next().charAt(0);
+	        	if (tmp == 1 || tmp == 2) {
+	        		validPlayers = true;
+				players = tmp;
+	        	}
+	        	else {
+	        		System.out.printf("Please input 1 or 2 players");
+	        	}
+	    	}
 
 		game.instructions();
-		game.play(tmp);
-		game.endRound(tmp);
+		game.play(players);
+		game.endRound(players);
 	}
 }
