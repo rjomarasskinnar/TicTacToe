@@ -12,6 +12,7 @@ apply plugin: 'pmd'
 apply plugin: 'java'
 apply plugin: 'application'
 apply plugin: 'net.saliman.cobertura'
+apply plugin: 'maven'
 jar {
 	manifest {
 		attributes 'Main-Class': 'is.ru.TicTacToe.Game'
@@ -36,7 +37,25 @@ cobertura {
     coverageIgnoreTrivial = true
     coverageIgnores = ['org.slf4j.Logger.*']
     coverageReportDir = new File("$buildDir/reports/cobertura")
+}
     
+task createPom << {
+    pom {
+        project {
+            groupId 'is.ru'
+            artifactId 'TicTacToe'
+            version '1'
+
+            inceptionYear '2008'
+            licenses {
+                license {
+                    name 'The Apache Software License, Version 2.0'
+                    url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    distribution 'repo'
+                }
+            }
+        }
+    }.writeTo("pom.xml")
 }
 
 // In this section you declare where to find the dependencies of your project
