@@ -150,30 +150,6 @@ public class AIPlayer {
 				return randomCorner();
 			}
 		}
-		/*
-		else if (evaluate(board) == 2 || evaluate(board) == 4) { // 3rd or 4th
-			
-			if (board.getBoardCells(1) != enemyToken) {
-				return 1;
-			}
-			else if (board.getBoardCells(3) != enemyToken) {
-				return 3;
-			}
-			else if (board.getBoardCells(5) != enemyToken) {
-				return 5;
-			}
-			else if (board.getBoardCells(7) != enemyToken) {
-				return 7;
-			}
-			else {
-				int rand = 0;
-				do {
-					rand = r.nextInt(8);
-				} while (board.getBoardCells(rand) != ' ');
-				return rand;
-			}
-		}
-		*/
 		else {
 			int rand = 0;
 			do {

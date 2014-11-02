@@ -129,14 +129,6 @@ public class TicTacToeTest {
     	testBoard.updateBoard(0, 'O');
     	assertEquals(4, ai.preferredMove(testBoard));
     }
-    @Test
-    public void testAIPreferredMoveOnThirdTurn() {
-    	Board testBoard = new Board();
-    	AIPlayer ai = new AIPlayer('O');
-    	testBoard.updateBoard(0, 'O');
-    	testBoard.updateBoard(4, 'X');
-    	assertEquals(1, ai.preferredMove(testBoard));
-    }
 
 	@Test
 	public void testIsOverWinner() {
