@@ -129,7 +129,7 @@ public class Game {
 		if(board.getBoardCells(0) == token && 
 		   board.getBoardCells(1) == token && 
 		   board.getBoardCells(2) == token) {
-			topLine = true;
+			topLine = false;
 		}
 
 		if(board.getBoardCells(3) == token && 
